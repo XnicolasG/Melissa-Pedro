@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<main class="h-screen">
+		<div style="background-image: url('https://images.pexels.com/photos/2165931/pexels-photo-2165931.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+            class="h-5/6 bg-cover bg-center relative ">
+			<div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent  to-stone-200"></div>
+			<section class="absolute flex flex-col gap-y-4 top-1/2 left-[15%] font-semibold text-black">
+				<p class="text-xl font-semibold">Diciembre 2024 | 2:00 PM</p>
+				<h1 class="text-7xl font-semibold ">Melissa {'&'} Pedro</h1>
+				<h2 class="text-2xl">Nos Casamos !</h2>
+				<a 
+				class="py-2 w-36 text-center text-lg text-white font-bold shadow-sm px-4 rounded-full border-4 border-black bg-black/80 hover:bg-stone-200 hover:text-black transition duration-150 "
+				href="/Reserva">RSVP</a>
+			</section>
+		</div>
+	</main>
+</Layout>
+

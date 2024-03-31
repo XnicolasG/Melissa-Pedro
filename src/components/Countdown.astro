@@ -1,0 +1,96 @@
+---
+import "../styles/style.css";
+---
+
+<main class="flex flex-col w-full md:w-4/6 xl:w-1/3 mx-auto justify-around">
+    <hr
+        class="h-[3px] w-full my-4 bg-transparent bg-gradient-to-r from-transparent via-gray-700/80 to-transparent"
+    />
+    <section class="flex my-2 mx-auto justify-around w-full">
+
+        <div class="countdown-item">
+            <h3 
+            class="countdown"
+            id="days"></h3>
+            <p class="">Días</p>
+        </div>
+        <div class="countdown-item">
+            <h3 
+            class="countdown"
+            id="hours"></h3>
+            <p>Horas</p>
+        </div>
+        <div class="countdown-item">
+            <h3 
+            class="countdown"
+            id="minutes"></h3>
+            <p>Minutos</p>
+        </div>
+        <div class="countdown-item">
+            <h3
+            class="countdown"
+            id="seconds"></h3>
+            <p>Segundos</p>
+        </div>
+    </section>
+    <hr
+        class="h-[3px] w-full my-4 bg-transparent bg-gradient-to-r from-transparent via-gray-700/80 to-transparent"
+    />
+</main>
+<style>
+    main{
+        opacity: 0;
+        animation: fadeInUp 2s ease-in-out forwards 0.5s;
+    }
+    @keyframes fadeInUp {
+        0%{
+            opacity: 0;
+            transform: translateY(150px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
+</style>
+<script>
+    const targetDate = new Date("2024-12-07T14:00:00").getTime();
+    console.log(targetDate);
+    let days;
+    let hours;
+    let minutes;
+    let seconds;
+    window.addEventListener("load", (event) => {
+        const countdown = setInterval(() => {
+            const currentDate = new Date().getTime();
+            const difference = targetDate - currentDate;
+
+            days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            hours = Math.floor(
+                (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+            );
+            minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            let element = document.getElementById("days");
+            if (element) element.innerText = days.toString();
+
+            element = document.getElementById("hours");
+            if (element) element.innerText = hours.toString();
+
+            element = document.getElementById("minutes");
+            if (element) element.innerText = minutes.toString();
+
+            element = document.getElementById("seconds");
+            if (element) element.innerText = seconds.toString();
+
+            if (difference < 0) {
+                clearInterval(countdown);
+                days = 0;
+                hours = 0;
+                minutes = 0;
+                seconds = 0;
+            }
+        }, 1000);
+    });
+</script>

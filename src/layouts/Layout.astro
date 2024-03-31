@@ -1,4 +1,5 @@
 ---
+import '../styles/style.css'
 import Navbar from "../components/Navbar.astro";
 interface Props {
 	title: string;
@@ -27,7 +28,32 @@ const { title } = Astro.props;
 		font-family: system-ui, sans-serif;
 		background: #fef3c7;
 		background: #e7e5e4;
-		scrollbar-width:  none; /* Firefox */
+		/* scrollbar-width:  none; Firefox */
 		scroll-behavior: smooth;
 	}
+	@supports selector(::-webkit-scrollbar) {
+				::-webkit-scrollbar {
+					width: 10px;
+					border-radius: 10px;
+				}
+
+				::-webkit-scrollbar-thumb {
+					border-radius: 10px;
+					background-color: #cbd5e1;
+					border: 2px solid transparent;
+					background-clip: content-box;
+				}
+
+				::-webkit-scrollbar-thumb:active {
+					background-color: black;
+				}
+
+				::-webkit-scrollbar-track {
+					background: black;
+				}
+
+				::-webkit-scrollbar-corner {
+					background: var(--background-image);
+				}
+			}
 </style>

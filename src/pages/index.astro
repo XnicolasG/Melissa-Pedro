@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Countdown from '../components/Countdown.astro'
+import '../styles/style.css'
 ---
 
 <Layout title="Welcome to Astro.">
@@ -10,7 +11,7 @@ import Countdown from '../components/Countdown.astro'
 			<div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent via-stone-200/70 to-stone-200"></div>
 			<section class="absolute flex flex-col gap-y-4 top-1/2 left-[15%] font-semibold text-black">
 				<p class="text-lg sm:text-xl font-semibold">7 Diciembre 2024 | 2:00 PM</p>
-				<h1 class="text-4xl sm:text-7xl font-semibold ">Melissa {'&'} Pedro</h1>
+				<h1 class="pangaia text-4xl sm:text-7xl font-semibold ">Melissa {'&'} Pedro </h1>
 				<h2 class="text-xl sm:text-2xl">📍 Ipiales, Pasto</h2>					
 					<a 
 					class="py-1 sm:py-2 text-center w-28 sm:w-36 justify-center text-md sm:text-lg text-amber-400 font-bold shadow-sm px-4 rounded-full border-4 border-black bg-black/80 hover:bg-stone-200 hover:text-black transition duration-150 "
@@ -21,3 +22,14 @@ import Countdown from '../components/Countdown.astro'
 	</main>
 </Layout>
 
+<style>
+	.pangaia {
+		font-family: "PPPangaia-Ultralight";
+	}
+</style>
+<style is:global>
+	@font-face {
+		font-family: "PPPangaia-Ultralight";
+		src: url("/fonts/PPPangaia-PPPangaia-Ultralight.otf") format("otf");
+	}
+</style>

@@ -2,19 +2,20 @@
 import Layout from '../layouts/Layout.astro';
 import Countdown from '../components/Countdown.astro'
 import '../styles/style.css'
+import '@fontsource-variable/quicksand';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main class="h-screen">
 		<div style="background-image: url('https://images.pexels.com/photos/2165931/pexels-photo-2165931.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
-            class="h-4/6 md:h-5/6 bg-cover bg-center relative ">
+            class="h-4/6 md:h-5/6 bg-cover bg-center relative transition-all image-container">
 			<div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent via-stone-200/70 to-stone-200"></div>
 			<section class="absolute flex flex-col gap-y-4 top-1/2 left-[15%] font-semibold text-black">
-				<p class="text-lg sm:text-xl font-semibold">7 Diciembre 2024 | 2:00 PM</p>
-				<h1 class="pangaia text-4xl sm:text-7xl font-semibold ">Melissa {'&'} Pedro </h1>
-				<h2 class="text-xl sm:text-2xl">📍 Ipiales, Pasto</h2>					
+				<p class="title text-lg sm:text-xl font-semibold">7 Diciembre 2024 | 2:00 PM</p>
+				<h1 class="title text-4xl sm:text-7xl font-semibold ">Melissa {'&'} Pedro </h1>
+				<h2 class="title text-xl sm:text-2xl">📍 Ipiales, Pasto</h2>					
 					<a 
-					class="py-1 sm:py-2 text-center w-28 sm:w-36 justify-center text-md sm:text-lg text-amber-400 font-bold shadow-sm px-4 rounded-full border-4 border-black bg-black/80 hover:bg-stone-200 hover:text-black transition duration-150 "
+					class="title py-1 sm:py-2 text-center tracking-wider w-28 sm:w-36 justify-center text-md sm:text-lg text-amber-400 font-bold shadow-sm px-4 rounded-full border-4 border-black bg-black/80 hover:bg-stone-200 hover:text-black transition duration-150 "
 					href="/Registro">RSVP</a>
 			</section>
 		</div>
@@ -23,13 +24,21 @@ import '../styles/style.css'
 </Layout>
 
 <style>
-	.pangaia {
-		font-family: "PPPangaia-Ultralight";
+	.title{
+		font-family: 'Quicksand Variable', sans-serif;
 	}
-</style>
-<style is:global>
-	@font-face {
-		font-family: "PPPangaia-Ultralight";
-		src: url("/fonts/PPPangaia-PPPangaia-Ultralight.otf") format("otf");
+	.image-container{
+		animation: colorize 3s ease-in-out forwards ;
+	}
+	@keyframes colorize {
+		0%{
+			filter:grayscale(100%)
+		}
+		70%{
+			filter:grayscale(70%)
+		}
+		100%{
+			filter:grayscale(0)
+		}
 	}
 </style>

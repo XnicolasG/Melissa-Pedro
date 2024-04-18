@@ -1,0 +1,37 @@
+---
+
+
+---
+
+<div id="map" class="map h-[400px] w-1/2 my-4"></div>
+
+
+<script>
+import { loadMapboxScriptIfNeeded, initializeMap } from "../utils/mapbox.js";
+
+    const mapContainer = document.getElementById('map');
+
+async function initMap() {
+  await loadMapboxScriptIfNeeded();
+
+  initializeMap(mapContainer, 13);
+}
+
+initMap();
+</script>
+<style>
+.map{
+        opacity: 0;
+        animation: fadeInUp 2s ease-in-out forwards 1s;
+    }
+    @keyframes fadeInUp {
+        0%{
+            opacity: 0;
+            transform: translateY(150px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
+</style>

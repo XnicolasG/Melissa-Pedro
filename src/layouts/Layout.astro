@@ -15,6 +15,12 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"
+		></script>
+		<link
+			href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css"
+			rel="stylesheet"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -34,7 +40,7 @@ const { title } = Astro.props;
 		background: #e7e5e4;
 		/* scrollbar-width:  none; Firefox */
 		scroll-behavior: smooth;
-		font-family: 'PPPangaia-UltralightItalic'
+		font-family: "PPPangaia-UltralightItalic";
 	}
 	@supports selector(::-webkit-scrollbar) {
 		::-webkit-scrollbar {

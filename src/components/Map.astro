@@ -3,7 +3,7 @@
 
 ---
 
-<div id="map" class="map h-[400px] w-1/2 my-4"></div>
+<div id="map" class="map h-[400px] w-full md:w-1/2 my-4"></div>
 
 
 <script>
@@ -14,7 +14,7 @@ import { loadMapboxScriptIfNeeded, initializeMap } from "../utils/mapbox.js";
 async function initMap() {
   await loadMapboxScriptIfNeeded();
 
-  initializeMap(mapContainer, 13);
+  initializeMap(mapContainer, 15);
 }
 
 initMap();

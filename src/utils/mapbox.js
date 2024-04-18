@@ -26,7 +26,7 @@ export function initializeMap(mapContainerId, zoom) {
   new mapboxgl.Map({
     container: mapContainerId,
     style: 'mapbox://styles/mapbox/streets-v11',
-    center:[-77.62, 0.812821],
+    center:[-77.586, 0.804821],
     zoom,
   });
 }

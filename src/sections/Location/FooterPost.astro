@@ -8,7 +8,9 @@ import Like from "../../components/icons/Like.astro";
     <div class="flex gap-x-2 items-center">
         <Like id="like" stroke="white" fill="transparent" class=" size-5" />
         <Comment stroke="white" class="size-5" />
-        <a href="whatsapp://send?text=Visita%20este%20enlace:%20https%3A%2F%2Fmelissa-pedro.vercel.app/" target="_blank">
+        <a 
+        href="whatsapp://send?text=Visita%20este%20enlace:%20https%3A%2F%2Fmelissa-pedro.vercel.app/" 
+        target="_blank">
             <Send stroke="white" class="size-5" />
         </a>
 
@@ -19,7 +21,7 @@ import Like from "../../components/icons/Like.astro";
 
 <style>
     .like{
-        animation: likeScale .3s ease-in-out;
+        animation: likeScale .25s ease-in-out;
     }
     @keyframes likeScale {
         0%, 100%{ transform: scale(1)}

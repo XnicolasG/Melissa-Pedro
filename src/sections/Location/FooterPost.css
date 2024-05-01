@@ -1,0 +1,12 @@
+.like {
+    animation: likeScale 0.25s ease-in-out;
+}
+@keyframes likeScale {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+}

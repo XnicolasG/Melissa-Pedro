@@ -21,8 +21,10 @@ const Post = () => {
             className="carousel flex w-full h-full transition-transform duration-500"
         >
             {
-                PostImages.map((image) => (
-                    <div className="carousel-item z-10 w-full h-full flex-shrink-0 flex items-center justify-center overflow-hidden">
+                PostImages.map((image,index) => (
+                    <div 
+                    key={index}
+                    className="carousel-item z-10 w-full h-full flex-shrink-0 flex items-center justify-center overflow-hidden">
                         <img
                             className="w-full object-cover grayscale-70 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all"
                             src={image.src}

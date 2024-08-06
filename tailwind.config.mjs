@@ -6,7 +6,9 @@ export default {
 	theme: {
 		extend: {
 			backgroundImage:{
-				main : "url('/img/MPProfile.jpg')"
+				main : "url('/img/MPProfile.jpg')",
+				mainWide : "url('/img/MPWide.jpg')",
+				mainW : "url('/img/MPWideTwo.jpg')"
 			},
 			grayscale: {
 				70: '70%',

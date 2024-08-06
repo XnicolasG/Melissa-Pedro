@@ -7,15 +7,15 @@
 
 
 <script>
-import { loadMapboxScriptIfNeeded, initializeMap } from "../../utils/mapbox.js";
+import { initializeMap, loadMapboxScriptIfNeeded } from "../../utils/mapbox";
 
     const mapContainer = document.getElementById('map');
 
 async function initMap() {
   await loadMapboxScriptIfNeeded();
 
-  initializeMap(mapContainer, 15);
+ initializeMap(mapContainer, 15);
 }
 
-initMap();
+await initMap();
 </script>

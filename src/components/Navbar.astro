@@ -3,7 +3,19 @@
 ---
 
 <nav
-    class="fixed flex justify-center left-0 right-0 w-full  mx-auto lg:my-2 z-10"
+    id="header"
+    class="sticky flex justify-center top-0 w-full mx-auto lg:my-2 z-10"
 >
     <h1 class="text-4xl md:text-6xl text-emerald-900">Melissa & Pedro</h1>
 </nav>
+
+<script>
+    window.addEventListener("scroll", function () {
+        const header = document.getElementById('header');
+        if (window.scrollY > 150) {
+            header?.classList.add('bg-stone-200')
+        }else{
+            header?.classList.remove('bg-stone-200')
+        }
+    });
+</script>

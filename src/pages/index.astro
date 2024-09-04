@@ -1,15 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Countdown from '../components/Countdown.astro'
+import Countdown from '../sections/Header/Countdown.astro'
 import '../styles/style.css'
 import '@fontsource-variable/quicksand';
 import Location from '../components/Location.astro';
 import Header from '../components/Header.astro';
+import { TimeLine } from '../sections/OrdenDia/TimeLine';
+import Post from '../sections/Post/Post';
 ---
 
 <Layout title="Melissa & Pedro - Save the date 7, Dic">
 	<main id='main' class=" h-screen">
 		<Header />
+		<TimeLine />
+		<Post client:visible />
 		<Location />
 	</main>
 </Layout>

@@ -8,36 +8,36 @@ const Post = () => {
 
     const [current, setCurrent] = useState(0)
     const PostImages = [
-        { 
-            id: useId(), 
-            src: '/img/lajas.jpg', 
-            alt: "Santuario Las Lajas, Ipiales", 
-            title: 'Santuario de Las Lajas ⛪', 
-            description: '¡Un lugar impresionante! El Santuario de Las Lajas es una joya arquitectónica enclavada en un cañón. Ven a maravillarte con su belleza y disfruta de un paseo por el entorno natural. Ideal para fotos y momentos de paz.' 
+        {
+            id: useId(),
+            src: '/img/lajas.jpg',
+            alt: "Santuario Las Lajas, Ipiales",
+            title: 'Santuario de Las Lajas ⛪',
+            description: '¡Un lugar impresionante! El Santuario de Las Lajas es una joya arquitectónica enclavada en un cañón. Ven a maravillarte con su belleza y disfruta de un paseo por el entorno natural. Ideal para fotos y momentos de paz.'
         },
-        { 
-            id: useId(), 
-            src: '/img/Tulcan_cemetery.webp', 
-            alt: "Cementerio de Tulcan, Ecuador ", 
-            title: 'Cementerio de Tulcan 🌲', 
-            description: '¡No es un cementerio cualquiera! El Cementerio de Tulcan destaca por sus esculturas de cipreses tallados en formas sorprendentes. Un lugar único que combina arte y tradición, perfecto para una caminata reflexiva.' 
+        {
+            id: useId(),
+            src: '/img/Tulcan_cemetery.webp',
+            alt: "Cementerio de Tulcan, Ecuador ",
+            title: 'Cementerio de Tulcan 🌲',
+            description: '¡No es un cementerio cualquiera! El Cementerio de Tulcan destaca por sus esculturas de cipreses tallados en formas sorprendentes. Un lugar único que combina arte y tradición, perfecto para una caminata reflexiva.'
         },
-        { 
-            id: useId(), 
-            src: '/img/laguna_cumbal.webp', 
-            alt: "Laguna de Cumbal, Nariño", 
-            title: 'Laguna de Cumbal 🏞️', 
-            description: '¡Un rincón mágico en medio de la naturaleza! La Laguna de Cumbal es el lugar perfecto para desconectar del bullicio. Disfruta de sus paisajes, haz senderismo y respira aire puro en este paraíso escondido.' 
+        {
+            id: useId(),
+            src: '/img/laguna_cumbal.webp',
+            alt: "Laguna de Cumbal, Nariño",
+            title: 'Laguna de Cumbal 🏞️',
+            description: '¡Un rincón mágico en medio de la naturaleza! La Laguna de Cumbal es el lugar perfecto para desconectar del bullicio. Disfruta de sus paisajes, haz senderismo y respira aire puro en este paraíso escondido.'
         },
-        { 
-            id: useId(), 
-            src: '/img/el_charco.webp', 
-            alt: "Barrio El Charco, Ipiales", 
-            title: 'Barrio El Charco 🏠', 
-            description: '¡Explora la esencia local de Ipiales! El Barrio El Charco es conocido por su ambiente auténtico y su cultura vibrante. Recorre sus calles, prueba la comida típica y sumérgete en la vida cotidiana de la región.' 
+        {
+            id: useId(),
+            src: '/img/el_charco.webp',
+            alt: "Barrio El Charco, Ipiales",
+            title: 'Barrio El Charco 🏠',
+            description: '¡Explora la esencia local de Ipiales! El Barrio El Charco es conocido por su ambiente auténtico y su cultura vibrante. Recorre sus calles, prueba la comida típica y sumérgete en la vida cotidiana de la región.'
         }
     ];
-    
+
 
     const incrementState = () => {
         if (current < PostImages.length - 1) {
@@ -53,8 +53,9 @@ const Post = () => {
 
     return (
         <section
-            className="group flex flex-col items-start justify-start w-full md:w-1/2 lg:w-1/4 h-[600px] lg:h-[700px]  "
+            className="group flex flex-col mx-auto mt-24 items-center justify-center w-full md:w-1/2 lg:w-1/4 h-[600px] lg:h-[700px]  "
         >
+            <h1 class="mx-auto text-5xl">Recomendaciones</h1>
             <h2 className="mx-auto text-gray-700/80 text-2xl">¿Que hacer en Ipiales?</h2>
 
             <HeaderPost client:visible />

@@ -1,21 +1,24 @@
 ---
+import Google from '../../components/icons/Google'
+const { imgMap, linkMap } = Astro.props;
 
+console.log(linkMap, imgMap);
 
 ---
 
-<div id="map" class="map h-[350px] w-full md:w-1/2 my-4"></div>
-
-
-<script>
-import { initializeMap, loadMapboxScriptIfNeeded } from "../../utils/mapbox";
-
-    const mapContainer = document.getElementById('map');
-
-async function initMap() {
-  await loadMapboxScriptIfNeeded();
-
- initializeMap(mapContainer, 15);
-}
-
-await initMap();
-</script>
+<div class={`group w-full md:w-1/2 rounded lg:w-2/3 h-[500px] ${imgMap} bg-center overflow-hidden `}>
+  <section
+  class="grid justify-center items-center w-full h-full backdrop-blur-sm bg-white/20 translate-y-[100%] group-hover:translate-y-0 transition-all duration-200"
+  >
+    <a 
+    class="py-2 px-4 flex items-center justify-between gap-x-2  bg-blue-400 text-white text-lg font-semibold rounded-lg hover:scale-110 hover:bg-blue-500/80 transition-all durantion-110"
+    href={linkMap}
+    target="_blank"
+    >
+    <p >
+      Ver mapa
+    </p>
+    <Google  />
+  </a>
+  </section>
+</div>

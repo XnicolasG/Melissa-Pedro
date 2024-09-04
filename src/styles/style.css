@@ -11,7 +11,7 @@
     .countdown {
       @apply font-bold text-4xl md:text-5xl;
     }
-    p{
+    .count{
       @apply text-red-800
     }
   }

@@ -13,8 +13,8 @@ const Post = () => {
     ];
   return (
     <section
-    className="group flex flex-col items-center justify-center w-full md:w-1/2 lg:w-1/3 h-[600px] lg:h-[700px] overflow-hidden"
->
+    className="group flex flex-col items-start justify-start w-full md:w-1/2 lg:w-1/3 h-[600px] lg:h-[700px] overflow-hidden "
+> 
     <HeaderPost client:visible />
     <div className="relative w-full h-96 overflow-hidden transition-all">
         <div

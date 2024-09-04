@@ -35,7 +35,7 @@ export const Carousel = ({ children, current, incrementState, decrementState }) 
                         children.map((_, i) => (
                             <aside 
                             key={i}
-                            className={`transition-all w-1 h-1 rounded-full bg-white ${current === i ? 'p-1 bg-blue-500' : 'bg-opacity-80'}`}
+                            className={`transition-all w-1 h-1 rounded-full bg-white ${current === i ? 'p-1' : 'bg-opacity-80'}`}
                             
                             />
                         ))

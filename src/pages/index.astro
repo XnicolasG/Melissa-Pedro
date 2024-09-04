@@ -4,46 +4,13 @@ import Countdown from '../components/Countdown.astro'
 import '../styles/style.css'
 import '@fontsource-variable/quicksand';
 import Location from '../components/Location.astro';
+import Header from '../components/Header.astro';
 ---
 
 <Layout title="Melissa & Pedro - Save the date 7, Dic">
 	<main id='main' class=" h-screen">
-		<div 
-            class="h-4/6 md:h-4/6 bg-mainW bg-cover bg-center  relative transition-all image-container">
-			<div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent via-stone-200/70 to-stone-200"></div>
-			<section class=" h-full px-6  flex flex-col justify-around md:w-1/2 mx-auto gap-y-4 font-semibold text-black ">
-				<div>
-
-					<h3 class="title text-lg sm:text-xl font-semibold">7 Diciembre 2024 | 2:00 PM</h3>
-					<h1 class="title text-4xl sm:text-5xl  font-semibold ">Melissa {'&'} Pedro </h1>
-					<h2 class="title text-xl sm:text-2xl">📍 Ipiales, Nariño</h2>					
-				</div>
-					<a 
-					class="title py-1 sm:py-2 text-center tracking-wider w-28 sm:w-36 justify-center text-md sm:text-lg text-red-800 font-bold shadow-sm px-4 rounded-xl border-2 border-black bg-stone-200 hover:scale-110 transition duration-150 "
-					href="/Registro">RSVP</a>
-			</section>
-		</div>
-		<Countdown />
+		<Header />
 		<Location />
 	</main>
 </Layout>
 
-<style>
-	.title{
-		font-family: 'Quicksand Variable', sans-serif;
-	}
-	.image-container{
-		animation: colorize 3s ease-in-out forwards ;
-	}
-	@keyframes colorize {
-		0%{
-			filter:grayscale(100%)
-		}
-		70%{
-			filter:grayscale(70%)
-		}
-		100%{
-			filter:grayscale(0)
-		}
-	}
-</style>

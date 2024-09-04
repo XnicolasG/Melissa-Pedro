@@ -6,12 +6,12 @@
 
 @layer components {
     .countdown-item {
-      @apply flex flex-col text-gray-700/80 justify-center items-center font-semibold;
+      @apply flex flex-col text-white/80 justify-center items-center font-semibold;
     }
     .countdown {
       @apply font-bold text-4xl md:text-5xl;
     }
     .count{
-      @apply text-red-800
+      @apply text-red-600 text-lg
     }
   }

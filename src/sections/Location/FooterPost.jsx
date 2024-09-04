@@ -1,39 +1,32 @@
-import { useState } from "react";
-import Comment from "../../components/icons/Comment";
-import Like from "../../components/icons/Like";
-import Send from "../../components/icons/Send";
+import { ActionButtons } from "../Post/ActionButtons";
 import './FooterPost.css'
 
-const FooterPost = () => {
-    const [like, setLike] = useState(false);
+const FooterPost = ({ current, posts }) => {
+    console.log(posts[current].description);
 
-    const toggleLike = () => {
-        setLike(!like);
-    };
 
     return (
         <section className="bg-black mb-20 p-2 flex flex-col gap-x-4 w-full rounded-b-md">
-            <div className="flex gap-x-2 items-center">
-                <Like
-                    stroke={like? '#ef4444' :  "white"}
-                    fill={like ? '#ef4444' : 'transparent'}
-                    id="like"
-                    className={`size-6 ${like ? 'like' : ''}`}
-                    onClick={toggleLike} />
-                <Comment stroke="white" className="size-6 transform scale-x-[-1]" />
-                <a 
-                target="blank_"
-                href="https://api.whatsapp.com/send?text=Save%20The%20Date%2007/12/24:%20https://melissa-pedro.vercel.app/">
-                <Send stroke="white" className="size-6" />
-                </a>
-            </div>
+            <ActionButtons />
             <section className="mt-2 text-pretty leading-5 px-1">
                 <p className="text-white font-light">
                     <span className="text-white font-bold">Melissa&Pedro </span>
                     Gracias por acompañarnos en esta fecha especial para nosotros. Sin embargo les dejamos algunas recomendaciones a visitar que no pueden dejar pasar:
                 </p>
             </section>
-            <article></article>
+            <article>
+                <br />
+                        <div className="text-white">
+                            <h3 className="font-semibold">
+                                {posts[current].title}
+                            </h3>
+
+                            <p >
+                                {posts[current].description}
+                            </p>
+                        </div>
+
+            </article>
         </section>
     );
 };

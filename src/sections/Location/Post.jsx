@@ -15,6 +15,8 @@ const Post = () => {
     <section
     className="group flex flex-col items-start justify-start w-full md:w-1/2 lg:w-1/3 h-[600px] lg:h-[700px] overflow-hidden "
 > 
+  <h2 class="mx-auto text-gray-700/80 text-2xl">¿Que hacer en Ipiales?</h2>
+
     <HeaderPost client:visible />
     <div className="relative w-full h-96 overflow-hidden transition-all">
         <div
@@ -26,7 +28,7 @@ const Post = () => {
                     key={index}
                     className="carousel-item z-10 w-full h-full flex-shrink-0 flex items-center justify-center overflow-hidden">
                         <img
-                            className="w-full object-cover grayscale-70 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all"
+                            className="w-full object-cover  group-hover:scale-110 transition-all"
                             src={image.src}
                             alt={image.alt}
                         />

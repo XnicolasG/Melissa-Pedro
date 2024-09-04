@@ -29,7 +29,7 @@ const FooterPost = () => {
             </div>
             <section className="mt-2 text-pretty leading-5 px-1">
                 <p className="text-white font-light">
-                    <span className="text-white font-bold">Melissa&Pedro</span>
+                    <span className="text-white font-bold">Melissa&Pedro </span>
                     Gracias por acompañarnos en esta fecha especial para nosotros. Sin embargo les dejamos algunas recomendaciones a visitar que no pueden dejar pasar:
                 </p>
             </section>

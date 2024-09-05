@@ -2,14 +2,12 @@ import { ActionButtons } from "../Post/ActionButtons";
 import './FooterPost.css'
 
 const FooterPost = ({ current, posts }) => {
-    console.log(posts[current].description);
-
 
     return (
         <section className="bg-black mb-20 p-2 flex flex-col gap-x-4 w-full rounded-b-md">
             <ActionButtons />
             <section className="mt-2 text-pretty leading-5 px-1">
-                <p className="text-white font-light">
+                <p className="text-white ">
                     <span className="text-white font-bold">Melissa&Pedro </span>
                     Gracias por acompañarnos en esta fecha especial para nosotros. Sin embargo les dejamos algunas recomendaciones a visitar que no pueden dejar pasar:
                 </p>

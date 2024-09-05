@@ -7,14 +7,18 @@ import Location from '../components/Location.astro';
 import Header from '../components/Header.astro';
 import { TimeLine } from '../sections/OrdenDia/TimeLine';
 import Post from '../sections/Post/Post';
+import { Registration } from '../components/Registration';
 ---
 
 <Layout title="Melissa & Pedro - Save the date 7, Dic">
-	<main id='main' class=" h-screen">
+	<main id='main' class=" h-screen ">
 		<Header />
-		<TimeLine />
-		<Post client:visible />
-		<Location />
-	</main>
+		<section class="flex flex-col gap-28">
+			<TimeLine />
+			<Post client:visible />
+			<Location />
+			<Registration client:visible />
+		</section>
+		</main>
 </Layout>
 

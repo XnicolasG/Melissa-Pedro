@@ -9,8 +9,7 @@ export default {
 				main : "url('/img/MPProfile.jpg')",
 				mainWide : "url('/img/MPWide.jpg')",
 				mainW : "url('/img/MPWideTwo.jpg')",
-				lajasbg: "url('/img/las-lajas.png')"
-
+				lajasbg: "url('/img/las-lajas.png')",
 			},
 			grayscale: {
 				70: '70%',

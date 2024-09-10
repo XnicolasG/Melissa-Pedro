@@ -1,6 +1,8 @@
 import Light from "./icons/Light"
 import '../styles/style.css'
 import { SingleForm } from "../sections/Registration/SingleForm"
+import { CoupleForm } from "../sections/Registration/CoupleForm"
+import { GroupForm } from "../sections/Registration/GroupForm"
 
 
 export const Registration = () => {
@@ -39,7 +41,9 @@ export const Registration = () => {
                     </div>
                 </section>
                 <main className="w-full">
-                    <SingleForm />
+                    {/* <SingleForm /> */}
+                    {/* <CoupleForm /> */}
+                    <GroupForm />
                 </main>
             </div>
         </section>

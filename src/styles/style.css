@@ -14,7 +14,17 @@
     .count{
       @apply text-red-600 text-lg
     }
+    .registrationButton {
+      @apply rounded border-2 border-emerald-800  text-emerald-800 px-2 hover:scale-110 hover:bg-emerald-800 hover:text-amber-50 focus:bg-emerald-800 focus:text-amber-50 transition-all
+    }
+    .mealButton{
+      @apply  mx-1 rounded-full ring-2 ring-transparent hover:ring-emerald-800 transition-all duration-150
+    }
   }
-.registrationButton {
-  @apply rounded border-2 border-emerald-800  text-emerald-800 px-2 hover:scale-110 hover:bg-emerald-800 hover:text-amber-50 focus:bg-emerald-800 focus:text-amber-50 transition-all
-}
+
+  input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+input[type=number] { -moz-appearance:textfield; }

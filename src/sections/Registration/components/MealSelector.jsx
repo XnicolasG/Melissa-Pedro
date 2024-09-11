@@ -18,7 +18,7 @@ export const MealSelector = ({ meatCount, vegetarianCount, incrementMeal, decrem
             <input
                 value={meatCount}
                 type="number"
-                className='w-12 px-2 text-center rounded outline-none border border-emerald-700' />
+                className='w-12 px-2 text-center rounded outline-none border border-emerald-700' readOnly />
             <button
                 className='mealButton'
                 type="button"
@@ -42,7 +42,7 @@ export const MealSelector = ({ meatCount, vegetarianCount, incrementMeal, decrem
             <input
                 value={vegetarianCount}
                 type="number"
-                className='w-12 px-2 text-center rounded outline-none border border-emerald-700' />
+                className='w-12 px-2 text-center rounded outline-none border border-emerald-700' readOnly />
             <button
                 className='mealButton'
                 type="button"

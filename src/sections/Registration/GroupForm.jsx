@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useMealCounter } from './hooks/useMealCounter'
 import { MealSelector } from './components/MealSelector'
+import { Minus } from '../../components/icons/Minus'
+import { Plus } from '../../components/icons/Plus'
 
 export const GroupForm = () => {
     const [isAttending, setIsAttending] = useState(false)
@@ -11,9 +13,24 @@ export const GroupForm = () => {
     const { meatCount, vegetarianCount } = state
     const [isSent, setIsSent] = useState(false)
     const [username, setUSername] = useState('')
-    let maxLimit = 5;
-    const { incrementMeal, decrementMeal } = useMealCounter(state, setState, maxLimit)
+    const minLimit = 3;
+    const [totalMembers, setTotalMembers] = useState(minLimit)
 
+    const { incrementMeal, decrementMeal } = useMealCounter(state, setState, totalMembers)
+
+    console.log(totalMembers);
+
+    const incrementMembers = () => {
+        if (totalMembers < 10) {
+            setTotalMembers(totalMembers => totalMembers + 1);
+        }
+    }
+
+    const decrementMembers = () => {
+        if (totalMembers > 3) {
+            setTotalMembers(totalMembers => totalMembers - 1);
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -50,7 +67,7 @@ export const GroupForm = () => {
                             />
                         </div>
                         <div id="attending" className="flex flex-col sm:flex-row justify-start items-center gap-x-6 mt-8 w-full ">
-                            <p className="text-xl text-emerald-800">¿ Contaremos ustedes para celebrar este momento tan importante ?</p>
+                            <p className="text-xl text-pretty text-emerald-800">¿ Contaremos ustedes para celebrar este momento tan importante ?</p>
                             <div className="flex items-center my-2 gap-x-2">
                                 <button
                                     onClick={() => setIsAttending(true)}
@@ -68,15 +85,54 @@ export const GroupForm = () => {
                         </div>
                         {
                             isAttending &&
-                            <div className="flex flex-col sm:flex-row gap-x-6 items-center  mt-8 w-full" >
-                                <p className="text-xl text-emerald-800"> ¿ Que tipo de menú prefieren ?</p>
-                                <MealSelector
-                                    meatCount={meatCount}
-                                    vegetarianCount={vegetarianCount}
-                                    incrementMeal={incrementMeal}
-                                    decrementMeal={decrementMeal}
-                                />
-                            </div>
+                            <>
+                                <div className='flex flex-col sm:flex-row gap-x-6 items-center  mt-8 w-full'>
+                                    <article>
+                                        <p className='text-xl  text-emerald-800'>¿ Cuantos integrantes tiene este grupo?</p>
+                                        <p className='text-sm text-center text-gray-500'>
+                                            para registros como grupo mínimo deben ser 3, máximo 10
+                                        </p>
+                                    </article>
+                                    <div className='flex item-center'>
+                                        <button
+                                            onClick={decrementMembers}
+                                            type='button'
+                                            className='mealButton'>
+                                            <Minus />
+                                        </button>
+                                        <input
+                                            title='Minimo deben ser 3'
+                                            value={totalMembers}
+                                            className='w-12 px-2 text-center rounded outline-none border border-emerald-700' type="number" 
+                                            readOnly
+                                            />
+                                        <button
+                                            type='button'
+                                            className='mealButton'
+                                            onClick={incrementMembers}
+                                        >
+                                            <Plus />
+                                        </button>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col sm:flex-row gap-x-6 items-center  mt-8 w-full" >
+                                    <p className="text-xl text-emerald-800"> ¿ Que tipo de menú prefieren ?</p>
+                                    <MealSelector
+                                        meatCount={meatCount}
+                                        vegetarianCount={vegetarianCount}
+                                        incrementMeal={incrementMeal}
+                                        decrementMeal={decrementMeal}
+                                    />
+                                </div>
+                                <section className='flex flex-col gap-x-6  mt-8 w-full'>
+                                    <p className='text-xl text-emerald-800'>
+                                        ¿ Cuentanos quienes son los {totalMembers ? totalMembers : ''} integrantes de {username ? username : 'este grupo'} ?
+                                    </p>
+                                    <textarea 
+                                    className='w-full mx-auto rounded p-2 my-2'
+                                    placeholder='Ej: Pedro Luis Ramírez, Melissa Ayala, Lupe'></textarea>
+                                </section>
+                            </>
                         }
                         <button className="registrationButton bottom-0 w-1/3 my-8"> Enviar </button>
                     </form>

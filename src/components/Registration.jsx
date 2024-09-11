@@ -3,9 +3,15 @@ import '../styles/style.css'
 import { SingleForm } from "../sections/Registration/SingleForm"
 import { CoupleForm } from "../sections/Registration/CoupleForm"
 import { GroupForm } from "../sections/Registration/GroupForm"
+import { useState } from "react"
 
 
 export const Registration = () => {
+    const [activeIndex, setActiveIndex] = useState(0); 
+
+    const handleFormSwitch = (index) => {
+        setActiveIndex(index);
+    }
     return (
         <section id="Registro" className="flex flex-col my-8 w-[90%] md:w-3/3 mx-auto ">
             <h2 className="mx-auto text-center text-amber-50  text-5xl bg-emerald-800 p-2 w-full rounded-t-md">
@@ -35,15 +41,41 @@ export const Registration = () => {
                 <section>
                     <p className="text-gray-500 text-2xl mb-6">Realizar registro como:</p>
                     <div className="flex w-full justify-center gap-x-6 md:gap-x-12 ">
-                        <button type="button" className="registrationButton w-1/3 md:w-[15%]">Individual</button>
-                        <button type="button" className="registrationButton w-1/3 md:w-[15%]">Pareja</button>
-                        <button type="button" className="registrationButton w-1/3 md:w-[15%]">Grupo</button>
+                        <button
+                            onClick={() => handleFormSwitch(0)}
+                            type="button"
+                            className="registrationButton w-1/3 md:w-[15%]">
+                            Individual
+                        </button>
+                        <button
+                            onClick={() => handleFormSwitch(1)}
+                            type="button"
+                            className="registrationButton w-1/3 md:w-[15%]">
+                            Pareja
+                        </button>
+                        <button
+                            onClick={() => handleFormSwitch(2)}
+                            type="button"
+                            className="registrationButton w-1/3 md:w-[15%]">
+                            Grupo
+                        </button>
                     </div>
                 </section>
-                <main className="w-full">
-                    {/* <SingleForm /> */}
-                    {/* <CoupleForm /> */}
-                    <GroupForm />
+                <main className="w-full overflow-hidden relative">
+                    <div
+                        className="flex transition-transform duration-500 "
+                        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+                    >
+                        <div className="w-full flex-shrink-0">
+                            <SingleForm />
+                        </div>
+                        <div className="w-full flex-shrink-0">
+                            <CoupleForm />
+                        </div>
+                        <div className="w-full  flex-shrink-0">
+                            <GroupForm />
+                        </div>
+                    </div>
                 </main>
             </div>
         </section>

@@ -14,8 +14,8 @@ export const CoupleForm = () => {
   const { meatCount, vegetarianCount } = state
   const [isSent, setIsSent] = useState(false)
   const [username, setUSername] = useState('')
-  const maxLimit = 2;
-  const { incrementMeal, decrementMeal } = useMealCounter(state, setState, maxLimit)
+  const totalMemebers = 2;
+  const { incrementMeal, decrementMeal } = useMealCounter(state, setState, totalMemebers)
 
 
   const handleSubmit = (e) => {
@@ -53,7 +53,7 @@ export const CoupleForm = () => {
               />
             </div>
             <div id="attending" className="flex flex-col sm:flex-row justify-start items-center gap-x-6 mt-8 w-full ">
-              <p className="text-xl text-emerald-800">¿ Contaremos ustedes para celebrar este momento tan importante ?</p>
+              <p className="text-xl text-pretty text-emerald-800">¿ Contaremos ustedes para celebrar este momento tan importante ?</p>
               <div className="flex items-center my-2 gap-x-2">
                 <button
                   onClick={() => setIsAttending(true)}

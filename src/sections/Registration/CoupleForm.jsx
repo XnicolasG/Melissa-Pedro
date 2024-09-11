@@ -6,7 +6,7 @@ import '../../styles/style.css'
 import { MealSelector } from './components/MealSelector'
 
 export const CoupleForm = () => {
-  const [isAttending, setIsAttending] = useState(false)
+  const [isAttending, setIsAttending] = useState(null)
   const [state, setState] = useState({
     meatCount: 0,
     vegetarianCount: 0,
@@ -58,13 +58,13 @@ export const CoupleForm = () => {
                 <button
                   onClick={() => setIsAttending(true)}
                   type="button"
-                  className="registrationButton w-[50px]"
+                  className={`registrationButton w-[50px] ${isAttending === true && 'registrationButtonActive'}`}
                 >Si
                 </button>
                 <button
                   onClick={() => setIsAttending(false)}
                   type="button"
-                  className="registrationButton w-[50px]"
+                  className={`registrationButton w-[50px] ${isAttending === false && 'registrationButtonActive'}`}
                 >No
                 </button>
               </div>
@@ -85,11 +85,19 @@ export const CoupleForm = () => {
           </form>
           :
           <section className="flex flex-col justify-center items-center w-full md:w-1/2">
-
-            <p className="text-emerald-800 text-2xl">
-              {username} gracias por su registro
-            </p>
-            <a className="registrationButton text-xl text-center bottom-0 w-1/3 my-8" href="/">Ir al inicio</a>
+ {
+                            isAttending
+                                ?
+                            <p className="text-emerald-800 text-2xl">
+                                {username} gracias por la confirmación, los esperamos para festejar.
+                                
+                            </p>
+                            :
+                            <p className="text-emerald-800 text-2xl">
+                                {username} gracias por su registro, esperamos podamos vernos en otra ocasión.
+                            </p>
+                        }
+                        <a className="registrationButton text-xl text-center bottom-0 w-1/3 my-8" href="#home">Ir al inicio</a>
           </section>
       }
       <aside className="w-1/2 h-[550px] hidden md:block">

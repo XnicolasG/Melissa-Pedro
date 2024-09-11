@@ -44,19 +44,19 @@ export const Registration = () => {
                         <button
                             onClick={() => handleFormSwitch(0)}
                             type="button"
-                            className="registrationButton w-1/3 md:w-[15%]">
+                            className={`registrationButton w-1/3 md:w-[15%] ${activeIndex === 0 && 'registrationButtonActive' }`}>
                             Individual
                         </button>
                         <button
                             onClick={() => handleFormSwitch(1)}
                             type="button"
-                            className="registrationButton w-1/3 md:w-[15%]">
+                            className={`registrationButton w-1/3 md:w-[15%] ${activeIndex === 1 && 'registrationButtonActive' }`}>
                             Pareja
                         </button>
                         <button
                             onClick={() => handleFormSwitch(2)}
                             type="button"
-                            className="registrationButton w-1/3 md:w-[15%]">
+                            className={`registrationButton w-1/3 md:w-[15%] ${activeIndex === 2 && 'registrationButtonActive' }`}>
                             Grupo
                         </button>
                     </div>

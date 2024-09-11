@@ -5,7 +5,7 @@ import { Minus } from '../../components/icons/Minus'
 import { Plus } from '../../components/icons/Plus'
 
 export const GroupForm = () => {
-    const [isAttending, setIsAttending] = useState(false)
+    const [isAttending, setIsAttending] = useState(null)
     const [state, setState] = useState({
         meatCount: 0,
         vegetarianCount: 0,
@@ -72,13 +72,13 @@ export const GroupForm = () => {
                                 <button
                                     onClick={() => setIsAttending(true)}
                                     type="button"
-                                    className="registrationButton w-[50px]"
+                                    className={`registrationButton w-[50px] ${isAttending === true && 'registrationButtonActive'}`}
                                 >Si
                                 </button>
                                 <button
                                     onClick={() => setIsAttending(false)}
                                     type="button"
-                                    className="registrationButton w-[50px]"
+                                    className={`registrationButton w-[50px] ${isAttending === false && 'registrationButtonActive'}`}
                                 >No
                                 </button>
                             </div>
@@ -103,9 +103,9 @@ export const GroupForm = () => {
                                         <input
                                             title='Minimo deben ser 3'
                                             value={totalMembers}
-                                            className='w-12 px-2 text-center rounded outline-none border border-emerald-700' type="number" 
+                                            className='w-12 px-2 text-center rounded outline-none border border-emerald-700' type="number"
                                             readOnly
-                                            />
+                                        />
                                         <button
                                             type='button'
                                             className='mealButton'
@@ -128,9 +128,9 @@ export const GroupForm = () => {
                                     <p className='text-xl text-emerald-800'>
                                         ¿ Cuentanos quienes son los {totalMembers ? totalMembers : ''} integrantes de {username ? username : 'este grupo'} ?
                                     </p>
-                                    <textarea 
-                                    className='w-full mx-auto rounded p-2 my-2'
-                                    placeholder='Ej: Pedro Luis Ramírez, Melissa Ayala, Lupe'></textarea>
+                                    <textarea
+                                        className='w-full mx-auto rounded p-2 my-2'
+                                        placeholder='Ej: Pedro Luis Ramírez, Melissa Ayala, Lupe'></textarea>
                                 </section>
                             </>
                         }
@@ -139,10 +139,19 @@ export const GroupForm = () => {
                     :
                     <section className="flex flex-col justify-center items-center w-full md:w-1/2">
 
-                        <p className="text-emerald-800 text-2xl">
-                            {username} gracias por su registro
-                        </p>
-                        <a className="registrationButton text-xl text-center bottom-0 w-1/3 my-8" href="/">Ir al inicio</a>
+                        {
+                            isAttending
+                                ?
+                            <p className="text-emerald-800 text-2xl">
+                                {username} gracias por la confirmación, los esperamos con los brazos abiertos.
+                                
+                            </p>
+                            :
+                            <p className="text-emerald-800 text-2xl">
+                                {username} gracias por su registro, esperamos podamos vernos en otra ocasión.
+                            </p>
+                        }
+                        <a className="registrationButton text-xl text-center bottom-0 w-1/3 my-8" href="#home">Ir al inicio</a>
                     </section>
             }
             <aside className="w-1/2 h-[550px] hidden md:block">

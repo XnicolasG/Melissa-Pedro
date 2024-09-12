@@ -1,10 +1,12 @@
 import React, { useCallback } from 'react'
 
 export const useMealCounter = (state, setState, maxLimit) => {
+
+  const totalPlates = state.meatCount + state.vegetarianCount
+  
     const incrementMeal = useCallback((type) => {
       setState((prevState) => {
-        const total = prevState.meatCount + prevState.vegetarianCount;
-        if(prevState[type] < maxLimit && total < maxLimit){
+        if(prevState[type] < maxLimit && totalPlates < maxLimit){
           return {
             ...prevState,
             [type]: prevState[type] + 1
@@ -25,5 +27,6 @@ export const useMealCounter = (state, setState, maxLimit) => {
         return prevState;
       })
     }, [setState])
-  return {incrementMeal, decrementMeal}
+
+  return {incrementMeal, decrementMeal, totalPlates}
 }

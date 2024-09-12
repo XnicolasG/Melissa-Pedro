@@ -77,7 +77,7 @@ export const SingleForm = () => {
                                 </p>
                                 :
                                 <p className="text-emerald-800 text-2xl">
-                                    {username} gracias por su registro, esperamos podamos vernos en otra ocasión.
+                                    {username} gracias por tu registro, esperamos podamos vernos en otra ocasión.
                                 </p>
                         }
                         <a className="registrationButton text-xl text-center bottom-0 w-1/3 my-8" href="#home">Ir al inicio</a>

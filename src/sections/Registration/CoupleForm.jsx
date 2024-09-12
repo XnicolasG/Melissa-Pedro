@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useMealCounter } from './hooks/useMealCounter'
 import { Minus } from '../../components/icons/Minus'
 import { Plus } from '../../components/icons/Plus'
-import '../../styles/style.css'
 import { MealSelector } from './components/MealSelector'
+import '../../styles/style.css'
 
 export const CoupleForm = () => {
   const [isAttending, setIsAttending] = useState(null)
@@ -41,7 +41,7 @@ export const CoupleForm = () => {
             className="flex flex-col items-center justify-between w-full md:w-1/2 md:pr-4" >
             <div className="w-full">
 
-              <label htmlFor="name" className=" text-emerald-800 text-lg px-2">Ingresa tu nombres y apellidos de la pareja</label>
+              <label htmlFor="name" className=" text-emerald-800 text-lg px-2">Ingresa los nombres y apellidos de la pareja</label>
               <input
                 className="px-2 py-1 bg-transparent outline-none w-full border border-b-gray-400 focus:border-b-emerald-600 focus:border-b-2 transition-all duration-150"
                 id='name'
@@ -53,7 +53,7 @@ export const CoupleForm = () => {
               />
             </div>
             <div id="attending" className="flex flex-col sm:flex-row justify-start items-center gap-x-6 mt-8 w-full ">
-              <p className="text-xl text-pretty text-emerald-800">¿ Contaremos ustedes para celebrar este momento tan importante ?</p>
+              <p className="text-xl text-pretty text-emerald-800">¿ Contaremos con ustedes para celebrar este momento tan importante ?</p>
               <div className="flex items-center my-2 gap-x-2">
                 <button
                   onClick={() => setIsAttending(true)}

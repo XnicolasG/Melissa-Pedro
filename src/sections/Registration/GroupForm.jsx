@@ -3,6 +3,8 @@ import { useMealCounter } from './hooks/useMealCounter'
 import { MealSelector } from './components/MealSelector'
 import { Minus } from '../../components/icons/Minus'
 import { Plus } from '../../components/icons/Plus'
+import { useHandleErrors } from './hooks/useHandleErrors'
+import { useManageMembers } from './hooks/useManageMembers'
 
 export const GroupForm = () => {
     const [isAttending, setIsAttending] = useState(null)
@@ -13,37 +15,32 @@ export const GroupForm = () => {
     const { meatCount, vegetarianCount } = state
     const [isSent, setIsSent] = useState(false)
     const [username, setUSername] = useState('')
-    const minLimit = 3;
-    const [totalMembers, setTotalMembers] = useState(minLimit)
+    const { incrementMembers, decrementMembers, totalMembers } = useManageMembers()
+    const { incrementMeal, decrementMeal, totalPlates } = useMealCounter(state, setState, totalMembers)
+    const { missingAttendance,validatePlates, state: errorState, setState: setErrorState } = useHandleErrors(isAttending,totalPlates,totalMembers)
 
-    const { incrementMeal, decrementMeal } = useMealCounter(state, setState, totalMembers)
-
-    console.log(totalMembers);
-
-    const incrementMembers = () => {
-        if (totalMembers < 10) {
-            setTotalMembers(totalMembers => totalMembers + 1);
-        }
-    }
-
-    const decrementMembers = () => {
-        if (totalMembers > 3) {
-            setTotalMembers(totalMembers => totalMembers - 1);
-        }
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (username.trim() !== '') {
-            setIsSent(true);
-        }
+        const attendanceError = missingAttendance()
+        const platesError = validatePlates()
+        console.log(attendanceError, platesError);
+        // falta texto de error por falta de platos
+        setErrorState({
+            attendanceError
+        })
+
+        //  username.trim() !== ''
+        // ? setIsSent(true)
+        // : setIsSent(false)
+        // if (username.trim() !== '') {
+        //     setIsSent(true);
+        // }
     }
 
     const handleUsername = (e) => {
         setUSername(e.target.value)
     }
-
-
 
     return (
         <section className="w-full my-8 flex ">
@@ -67,7 +64,12 @@ export const GroupForm = () => {
                             />
                         </div>
                         <div id="attending" className="flex flex-col sm:flex-row justify-start items-center gap-x-6 mt-8 w-full ">
-                            <p className="text-xl text-pretty text-emerald-800">¿ Contaremos ustedes para celebrar este momento tan importante ?</p>
+                            <article className='flex flex-col'>
+                                <p className="text-xl text-pretty text-emerald-800">¿ Contaremos con ustedes para celebrar este momento tan importante ?</p>
+                                <p className={`text-sm text-pretty text-red-800/80 transition-all ${errorState.attendanceError ? 'block' : 'hidden'} `}>
+                                    recuerda seleccionar una opción para continuar
+                                </p>
+                            </article>
                             <div className="flex items-center my-2 gap-x-2">
                                 <button
                                     onClick={() => setIsAttending(true)}
@@ -89,7 +91,7 @@ export const GroupForm = () => {
                                 <div className='flex flex-col sm:flex-row gap-x-6 items-center  mt-8 w-full'>
                                     <article>
                                         <p className='text-xl  text-emerald-800'>¿ Cuantos integrantes tiene este grupo?</p>
-                                        <p className='text-sm text-center text-gray-500'>
+                                        <p className='text-sm text-pretty text-gray-500'>
                                             para registros como grupo mínimo deben ser 3, máximo 10
                                         </p>
                                     </article>
@@ -142,14 +144,14 @@ export const GroupForm = () => {
                         {
                             isAttending
                                 ?
-                            <p className="text-emerald-800 text-2xl">
-                                {username} gracias por la confirmación, los esperamos con los brazos abiertos.
-                                
-                            </p>
-                            :
-                            <p className="text-emerald-800 text-2xl">
-                                {username} gracias por su registro, esperamos podamos vernos en otra ocasión.
-                            </p>
+                                <p className="text-emerald-800 text-2xl">
+                                    {username} gracias por la confirmación, los esperamos con los brazos abiertos.
+
+                                </p>
+                                :
+                                <p className="text-emerald-800 text-2xl">
+                                    {username} gracias por su registro, esperamos podamos vernos en otra ocasión.
+                                </p>
                         }
                         <a className="registrationButton text-xl text-center bottom-0 w-1/3 my-8" href="#home">Ir al inicio</a>
                     </section>

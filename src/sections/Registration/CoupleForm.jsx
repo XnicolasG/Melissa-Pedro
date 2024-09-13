@@ -51,8 +51,8 @@ export const CoupleForm = () => {
             registration_type: 'pareja',
             attending: isAttending,
             number_of_people: null,
-            meat_count: 0,
-            vegetarian_count: 0,
+            meat_count: meatCount,
+            vegetarian_count: vegetarianCount,
             description: null
           })
           setIsSent(true);

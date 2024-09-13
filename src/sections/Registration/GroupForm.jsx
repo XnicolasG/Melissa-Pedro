@@ -55,8 +55,8 @@ export const GroupForm = () => {
                     registration_type: 'grupo',
                     attending: isAttending,
                     number_of_people: null,
-                    meat_count: 0,
-                    vegetarian_count: 0,
+                    meat_count: meatCount,
+                    vegetarian_count: vegetarianCount,
                     description
                 })
                 setIsSent(true);

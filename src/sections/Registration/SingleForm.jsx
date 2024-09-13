@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useHandleErrors } from "./hooks/useHandleErrors"
+import { insertRegistro } from "./service/insertRegistro"
 
 export const SingleForm = () => {
     const [isAttending, setIsAttending] = useState(null)
@@ -7,33 +8,71 @@ export const SingleForm = () => {
         meatCount: 0,
         vegetarianCount: 0,
     })
-  const { meatCount, vegetarianCount } = state
+    const { meatCount, vegetarianCount } = state
     const [isMealEmpty, setIsMealEmpty] = useState(null)
     const [isSent, setIsSent] = useState(false)
     const [username, setUSername] = useState('')
     const { missingAttendance, state: errorState, setState: setErrorState } = useHandleErrors(isAttending)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const attendanceError = missingAttendance()
+        const hasMeals = meatCount > 0 || vegetarianCount > 0
 
         setErrorState({
             attendanceError,
         })
 
-        if (username.trim() !== '') {
-            if (!attendanceError) {
-                setIsSent(true);
+        if (!attendanceError) {
+            // Verificar si no asistirá
+            if (!isAttending) {
+                try {
+                    await insertRegistro({
+                        names: username,
+                        registration_type: 'individual',
+                        attending: isAttending,
+                        number_of_people: 1,
+                        meat_count: meatCount,
+                        vegetarian_count: vegetarianCount,
+                        description: null
+                    })
+                    setIsSent(true);
+                } catch (error) {
+                    console.log('Error al insertar registro:', error);
+                }
             } else {
-                setIsSent(false)
+                // Verificar si ambos contadores de comida están en 0
+                if (state.meatCount === 0 && state.vegetarianCount === 0) {
+                    setIsMealEmpty(true);
+                    setIsSent(false);
+                } else {
+                    try {
+                        await insertRegistro({
+                            names: username,
+                            registration_type: 'individual',
+                            attending: isAttending,
+                            number_of_people: 1,
+                            meat_count: meatCount,
+                            vegetarian_count: vegetarianCount,
+                            description: null
+                        })
+                        setIsSent(true);
+                        setIsMealEmpty(false);
+                    } catch (error) {
+                        console.log('Error al insertar registro:', error);
+                    }
+                }
             }
+        } else {
+            setIsSent(false);
+            console.log('Attendance error:', attendanceError);
         }
     }
-    
+
     const handleUsername = (e) => {
         setUSername(e.target.value.trim())
     }
-    
+
     console.log(state);
     const handleMeal = (e) => {
         setState((prevState) => (
@@ -90,10 +129,10 @@ export const SingleForm = () => {
                             isAttending &&
                             <div className="flex flex-col sm:flex-row gap-x-6  mt-8 w-full" >
                                 <article className="flex flex-col">
-                                <p className="text-xl text-emerald-800"> ¿Que tipo de menú prefieres?</p>
-                                <p className={`text-pretty text-red-800/80 transition-all ${state.meatCount !== 1 || state.vegetarianCount !== 1  ? 'block' : 'hidden'}`}>
-                                    Selecciona una opción valida
-                                </p>
+                                    <p className="text-xl text-emerald-800"> ¿Que tipo de menú prefieres?</p>
+                                    <p className={`text-pretty text-red-800/80 transition-all ${isMealEmpty ? 'block' : 'hidden'}`}>
+                                        Selecciona una opción valida
+                                    </p>
                                 </article>
                                 <select
                                     onChange={handleMeal}

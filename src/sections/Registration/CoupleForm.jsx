@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useMealCounter } from './hooks/useMealCounter'
-import { Minus } from '../../components/icons/Minus'
-import { Plus } from '../../components/icons/Plus'
 import { MealSelector } from './components/MealSelector'
 import '../../styles/style.css'
+import { useHandleErrors } from './hooks/useHandleErrors'
+import { insertRegistro } from './service/insertRegistro'
 
 export const CoupleForm = () => {
   const [isAttending, setIsAttending] = useState(null)
@@ -14,19 +14,59 @@ export const CoupleForm = () => {
   const { meatCount, vegetarianCount } = state
   const [isSent, setIsSent] = useState(false)
   const [username, setUSername] = useState('')
-  const totalMemebers = 2;
-  const { incrementMeal, decrementMeal } = useMealCounter(state, setState, totalMemebers)
+  const { incrementMeal, decrementMeal, totalPlates } = useMealCounter(state, setState, 2)
+  const { missingAttendance, validatePlates, state: errorState, setState: setErrorState } = useHandleErrors(isAttending, totalPlates, 2)
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    if (username.trim() !== '') {
-      setIsSent(true);
+    const attendanceError = missingAttendance()
+    const platesError = validatePlates()
+    setErrorState({
+      attendanceError,
+      platesError
+    })
+
+    if (!attendanceError && isAttending) {
+      if (!platesError) {
+        try {
+          await insertRegistro({
+            names: username,
+            registration_type: 'pareja',
+            attending: isAttending,
+            number_of_people: 2,
+            meat_count: meatCount,
+            vegetarian_count: vegetarianCount,
+            description: null
+          })
+          setIsSent(true);
+        } catch (error) {
+          console.log('Error al insertar el registro:', error);
+        }
+
+      } else if (!attendanceError && !isAttending) {
+        try {
+          await insertRegistro({
+            names: username,
+            registration_type: 'pareja',
+            attending: isAttending,
+            number_of_people: null,
+            meat_count: 0,
+            vegetarian_count: 0,
+            description: null
+          })
+          setIsSent(true);
+        } catch (error) {
+          console.log('Error al insertar el registro:', error);
+        }
+      } else {
+        setIsSent(false)
+      }
     }
   }
 
   const handleUsername = (e) => {
-    setUSername(e.target.value)
+    setUSername(e.target.value.trim())
   }
 
 
@@ -53,7 +93,12 @@ export const CoupleForm = () => {
               />
             </div>
             <div id="attending" className="flex flex-col sm:flex-row justify-start items-center gap-x-6 mt-8 w-full ">
-              <p className="text-xl text-pretty text-emerald-800">¿ Contaremos con ustedes para celebrar este momento tan importante ?</p>
+              <article className='flex flex-col'>
+                <p className="text-xl text-pretty text-emerald-800">¿ Contaremos con ustedes para celebrar este momento tan importante ?</p>
+                <p className={`text-sm text-pretty text-red-800/80 transition-all ${errorState.attendanceError ? 'block' : 'hidden'} `}>
+                  recuerda seleccionar una opción para continuar
+                </p>
+              </article>
               <div className="flex items-center my-2 gap-x-2">
                 <button
                   onClick={() => setIsAttending(true)}
@@ -72,7 +117,12 @@ export const CoupleForm = () => {
             {
               isAttending &&
               <div className="flex flex-col sm:flex-row gap-x-6 items-center  mt-8 w-full" >
-                <p className="text-xl text-emerald-800"> ¿ Que tipo de menú prefieren ?</p>
+                <article className='flex flex-col'>
+                  <p className="text-xl text-emerald-800"> ¿ Que tipo de menú prefieren ?</p>
+                  <p className={`text-sm text-pretty text-red-800/80 transition-all ${errorState.platesError ? 'block' : 'hidden'} `}>
+                    El número de platos debe coincidir con el número de personas (2)
+                  </p>
+                </article>
                 <MealSelector
                   meatCount={meatCount}
                   vegetarianCount={vegetarianCount}
@@ -85,19 +135,19 @@ export const CoupleForm = () => {
           </form>
           :
           <section className="flex flex-col justify-center items-center w-full md:w-1/2">
- {
-                            isAttending
-                                ?
-                            <p className="text-emerald-800 text-2xl">
-                                {username} gracias por la confirmación, los esperamos para festejar.
-                                
-                            </p>
-                            :
-                            <p className="text-emerald-800 text-2xl">
-                                {username} gracias por su registro, esperamos podamos vernos en otra ocasión.
-                            </p>
-                        }
-                        <a className="registrationButton text-xl text-center bottom-0 w-1/3 my-8" href="#home">Ir al inicio</a>
+            {
+              isAttending
+                ?
+                <p className="text-emerald-800 text-2xl">
+                  {username} gracias por la confirmación, los esperamos para festejar.
+
+                </p>
+                :
+                <p className="text-emerald-800 text-2xl">
+                  {username} gracias por su registro, esperamos podamos vernos en otra ocasión.
+                </p>
+            }
+            <a className="registrationButton text-xl text-center bottom-0 w-1/3 my-8" href="#home">Ir al inicio</a>
           </section>
       }
       <aside className="w-1/2 h-[550px] hidden md:block">

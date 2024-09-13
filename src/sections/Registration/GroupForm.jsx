@@ -5,6 +5,7 @@ import { Minus } from '../../components/icons/Minus'
 import { Plus } from '../../components/icons/Plus'
 import { useHandleErrors } from './hooks/useHandleErrors'
 import { useManageMembers } from './hooks/useManageMembers'
+import { insertRegistro } from './service/insertRegistro'
 
 export const GroupForm = () => {
     const [isAttending, setIsAttending] = useState(null)
@@ -15,31 +16,63 @@ export const GroupForm = () => {
     const { meatCount, vegetarianCount } = state
     const [isSent, setIsSent] = useState(false)
     const [username, setUSername] = useState('')
+    const [description, setDescription] = useState('')
     const { incrementMembers, decrementMembers, totalMembers } = useManageMembers()
     const { incrementMeal, decrementMeal, totalPlates } = useMealCounter(state, setState, totalMembers)
-    const { missingAttendance,validatePlates, state: errorState, setState: setErrorState } = useHandleErrors(isAttending,totalPlates,totalMembers)
+    const { missingAttendance, validatePlates, state: errorState, setState: setErrorState } = useHandleErrors(isAttending, totalPlates, totalMembers)
+    console.log(username);
 
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const attendanceError = missingAttendance()
         const platesError = validatePlates()
-        console.log(attendanceError, platesError);
-        // falta texto de error por falta de platos
         setErrorState({
-            attendanceError
+            attendanceError,
+            platesError
         })
 
-        //  username.trim() !== ''
-        // ? setIsSent(true)
-        // : setIsSent(false)
-        // if (username.trim() !== '') {
-        //     setIsSent(true);
-        // }
+        if (!attendanceError && isAttending) {
+            if (!platesError) {
+                try {
+                    await insertRegistro({
+                        names: username,
+                        registration_type: 'grupo',
+                        attending: isAttending,
+                        number_of_people: totalMembers,
+                        meat_count: meatCount,
+                        vegetarian_count: vegetarianCount,
+                        description
+                    })
+                    setIsSent(true);
+                } catch (error) {
+                    console.log('Error al insertar el registro:', error);
+                }
+            }
+        } else if (!attendanceError && !isAttending) {
+            try {
+                await insertRegistro({
+                    names: username,
+                    registration_type: 'grupo',
+                    attending: isAttending,
+                    number_of_people: null,
+                    meat_count: 0,
+                    vegetarian_count: 0,
+                    description
+                })
+                setIsSent(true);
+            } catch (error) {
+                console.log('Error al insertar el registro:', error);
+            }
+        } else {
+            setIsSent(false)
+        }
     }
 
     const handleUsername = (e) => {
-        setUSername(e.target.value)
+        setUSername(e.target.value.trim())
+    }
+    const handleDescription = (e) => {
+        setDescription(e.target.value.trim())
     }
 
     return (
@@ -118,7 +151,12 @@ export const GroupForm = () => {
                                     </div>
                                 </div>
                                 <div className="flex flex-col sm:flex-row gap-x-6 items-center  mt-8 w-full" >
-                                    <p className="text-xl text-emerald-800"> ¿ Que tipo de menú prefieren ?</p>
+                                    <article className='flex flex-col'>
+                                        <p className="text-xl text-emerald-800"> ¿ Que tipo de menú prefieren ?</p>
+                                        <p className={`text-sm text-pretty text-red-800/80 transition-all ${errorState.platesError ? 'block' : 'hidden'} `}>
+                                            El número de platos debe coincidir con el número de personas ({totalMembers})
+                                        </p>
+                                    </article>
                                     <MealSelector
                                         meatCount={meatCount}
                                         vegetarianCount={vegetarianCount}
@@ -131,7 +169,8 @@ export const GroupForm = () => {
                                         ¿ Cuentanos quienes son los {totalMembers ? totalMembers : ''} integrantes de {username ? username : 'este grupo'} ?
                                     </p>
                                     <textarea
-                                        className='w-full mx-auto rounded p-2 my-2'
+                                        onChange={handleDescription}
+                                        className='w-full mx-auto rounded p-2 my-2 outline-none'
                                         placeholder='Ej: Pedro Luis Ramírez, Melissa Ayala, Lupe'></textarea>
                                 </section>
                             </>

@@ -1,21 +1,48 @@
 import { useState } from "react"
+import { useHandleErrors } from "./hooks/useHandleErrors"
 
 export const SingleForm = () => {
     const [isAttending, setIsAttending] = useState(null)
+    const [state, setState] = useState({
+        meatCount: 0,
+        vegetarianCount: 0,
+    })
+  const { meatCount, vegetarianCount } = state
+    const [isMealEmpty, setIsMealEmpty] = useState(null)
     const [isSent, setIsSent] = useState(false)
     const [username, setUSername] = useState('')
+    const { missingAttendance, state: errorState, setState: setErrorState } = useHandleErrors(isAttending)
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        const attendanceError = missingAttendance()
+
+        setErrorState({
+            attendanceError,
+        })
+
         if (username.trim() !== '') {
-            setIsSent(true);
+            if (!attendanceError) {
+                setIsSent(true);
+            } else {
+                setIsSent(false)
+            }
         }
     }
-
+    
     const handleUsername = (e) => {
-        setUSername(e.target.value)
+        setUSername(e.target.value.trim())
     }
-
+    
+    console.log(state);
+    const handleMeal = (e) => {
+        setState((prevState) => (
+            {
+                ...prevState,
+                [e.target.value]: 1
+            }
+        ))
+    }
     return (
         <section className="w-full my-8 flex ">
             {
@@ -38,7 +65,12 @@ export const SingleForm = () => {
                             />
                         </div>
                         <div id="attending" className="flex flex-col sm:flex-row justify-start items-center gap-x-6 mt-8 w-full ">
-                            <p className="text-xl text-emerald-800">¿ Contaremos contigo para celebrar este momento tan importante ?</p>
+                            <article className='flex flex-col'>
+                                <p className="text-xl text-pretty text-emerald-800">¿ Contaremos contigo para celebrar este momento tan importante ?</p>
+                                <p className={`text-sm text-pretty text-red-800/80 transition-all ${errorState.attendanceError ? 'block' : 'hidden'} `}>
+                                    recuerda seleccionar una opción para continuar
+                                </p>
+                            </article>
                             <div className="flex items-center my-2 gap-x-2">
                                 <button
                                     onClick={() => setIsAttending(true)}
@@ -57,10 +89,18 @@ export const SingleForm = () => {
                         {
                             isAttending &&
                             <div className="flex flex-col sm:flex-row gap-x-6  mt-8 w-full" >
+                                <article className="flex flex-col">
                                 <p className="text-xl text-emerald-800"> ¿Que tipo de menú prefieres?</p>
-                                <select className="bg-transparent p-2 outline-none border-2 border-emerald-700 rounded" name="" id="">
-                                    <option value="carne">Carne / pollo</option>
-                                    <option value="vegetariano">Vegetariano</option>
+                                <p className={`text-pretty text-red-800/80 transition-all ${state.meatCount !== 1 || state.vegetarianCount !== 1  ? 'block' : 'hidden'}`}>
+                                    Selecciona una opción valida
+                                </p>
+                                </article>
+                                <select
+                                    onChange={handleMeal}
+                                    className="bg-transparent p-2 outline-none border-2 border-emerald-700 rounded" name="" id="">
+                                    <option value={null} >Selecciona una opción</option>
+                                    <option value="meatCount">Carne / pollo</option>
+                                    <option value="vegetarianCount">Vegetariano</option>
                                 </select>
                             </div>
                         }

@@ -6,7 +6,8 @@ export const useMealCounter = (state, setState, maxLimit) => {
   
     const incrementMeal = useCallback((type) => {
       setState((prevState) => {
-        if(prevState[type] < maxLimit && totalPlates < maxLimit){
+        const total = prevState.meatCount + prevState.vegetarianCount
+        if(prevState[type] < maxLimit && total < maxLimit){
           return {
             ...prevState,
             [type]: prevState[type] + 1

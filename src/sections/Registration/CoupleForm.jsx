@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useMealCounter } from './hooks/useMealCounter'
 import { MealSelector } from './components/MealSelector'
-import '../../styles/style.css'
 import { useHandleErrors } from './hooks/useHandleErrors'
 import { insertRegistro } from './service/insertRegistro'
+import '../../styles/style.css'
 
 export const CoupleForm = () => {
   const [isAttending, setIsAttending] = useState(null)

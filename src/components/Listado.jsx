@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { getRegistros } from '../sections/Registration/service/getRegistros';
+import React from 'react'
 import { useGetData } from '../sections/Listado/hooks/useGetData';
 
 export const Listado = () => {
     const { list } = useGetData()
     return (
         <section className='px-6 w-full mt-8 flex flex-col items-center justify-center'>
-            <main className='w-[70%]'>
+            <main className='w-[95%] md:w-[70%]'>
 
                 <h1 className='text-3xl text-center py-1 text-amber-50 bg-emerald-800 w-full rounded-t-lg'>Lista de Registros</h1>
                 <div className='w-full px-2 my-4 gap-2 flex flex-col items-start'>
@@ -19,13 +18,15 @@ export const Listado = () => {
                 </div>
                 <table className='w-full'>
                     <thead className='text-amber-50'>
-                        <th>Asistencia</th>
-                        <th>Nombre</th>
-                        <th>Tipo registro</th>
-                        <th>P. registradas</th>
-                        <th>Platos carne</th>
-                        <th>Platos veg</th>
-                        <th>Descripción</th>
+                        <tr>
+                            <th scope="col">Asistencia</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Tipo registro</th>
+                            <th scope="col">P. registradas</th>
+                            <th scope="col">Platos carne</th>
+                            <th scope="col">Platos veg</th>
+                            <th scope="col">Descripción</th>
+                        </tr>
                     </thead>
                     <tbody>
 
@@ -45,7 +46,7 @@ export const Listado = () => {
                                             <td>{plate.vegetarian_count}</td>
                                         </React.Fragment>
                                     ))
-                                }
+                                    }
                                     <td>{item.description}</td>
                                 </tr>
                             ))

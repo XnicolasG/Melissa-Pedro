@@ -1,0 +1,45 @@
+---
+import MobileView from '../sections/weddingDay/MobileView.astro'
+import DesktopView from '../sections/weddingDay/DesktopView.astro'
+// const faqs = [
+//     {
+//     Question: '¿ Cómo llegar al Santuario ?',
+//     Answer1: 'Habrán buses disponibles desde el hotel Santa Isabel 2 hasta el Santuario',
+//     Answer2: 'Puedes ir en tu carro y parquear en los aprqueaderos publicos al llegar.',
+//     tip: ['Recuerda llegar con tiempo porque es temporada alta']
+// },
+// {
+//     Question: '¿ Cómo bajar a la Basilica ?',
+//     Answer1: 'Se puede bajar en teleferico pero aun así deberas bajar unos cuantos escalones asi que lleva zapatos comodos.',
+//     Answer2: 'Puedes bajar de igual manera caminando, para ello lleva zapatos comodos.',
+//     tip: ['$30k (ida y vuelta)', '1 Hora', '30 Minutos']
+// },
+// {
+//     Question: '¿ Cómo llegar a la recepción ?',
+//     Answer1: 'Los buses los llevarán al lugar de la recepción al salir de la ceremonia.',
+//     Answer2: 'En caso de que vayas en carro, puedes buscar en Waze Salón de eventos Santa Isabel.',
+//     buttons: [
+//         {google: 'https://www.google.com/maps/place/Salon+de+Eventos+Santa+Isabel/@0.8253983,-77.641024,14z/data=!4m15!1m8!3m7!1s0x8e296bc895d6b5e7:0xb26224384fc915ea!2sSalon+de+Eventos+Santa+Isabel!8m2!3d0.8252745!4d-77.6409107!10e5!16s%2Fg%2F11tn1s3578!3m5!1s0x8e296bc895d6b5e7:0xb26224384fc915ea!8m2!3d0.8252745!4d-77.6409107!16s%2Fg%2F11tn1s3578?entry=ttu&g_ep=EgoyMDI0MDkxMS4wIKXMDSoASAFQAw%3D%3D'},
+//         {Waze: 'https://www.waze.com/es/live-map/directions/hotel-santa-isabel-ipiales?to=place.w.185073672.1850474579.11745836'}
+//     ]
+// },
+// {
+//     Question: 'Maquillaje y peinado',
+//     Answer1: 'Puedes sacar cita en Viviana peluqueria, reserva en el numero: +57 3173015243 .',
+//     buttons: [
+//         {Llamar: 'tel:+573173015243'},
+//         {WhatsApp:"https://wa.me/573173015243?" }
+//     ]
+// },
+// ]
+
+---
+<section class="w-full px-4">
+    <h2 class="text-center text-gray-700/80 text-2xl">Recomendaciones para el día de la boda</h2>
+
+    <!-- Versión para pantallas pequeñas (menores a md) -->
+    <MobileView />
+
+    <!-- Versión para pantallas medianas y mayores (md y más grandes) -->
+    <DesktopView />
+</section>

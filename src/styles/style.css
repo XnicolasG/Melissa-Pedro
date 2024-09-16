@@ -23,6 +23,18 @@
     .mealButton{
       @apply  mx-1 rounded-full ring-2 ring-transparent hover:ring-emerald-800 transition-all duration-150
     }
+    .contFaqs{
+      @apply text-lg
+    }
+    .faqsTitle{
+      @apply text-xl font-bold text-emerald-800
+    }
+    .faqsTip{
+      @apply flex justify-around px-2 w-full md:w-1/2 gap-x-6 rounded-lg rounded-ss-none ring-2 ring-amber-300 bg-amber-100
+    }
+    .answer{
+      @apply before:content-['•'] pl-2
+    }
   }
 
   th{

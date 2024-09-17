@@ -1,4 +1,6 @@
 ---
+import Google from "./icons/Google"
+
 const recomendations = [
     {
         title: 'Si quieres probar el Cuy las mejores opciones son:',
@@ -71,7 +73,7 @@ const recomendations = [
         places: [
             {
                 name:'Heladeria 20 de Julio',
-                description:'El helado favorito de LA NOVIA en todo el mundo 🗺️.',
+                description:'Este es el helado favorito de la NOVIA en todo el mundo 🗺️.',
                 price: '$',
                 map: 'bg-heladeria',
                 location: 'https://www.google.com/maps/place/Helader%C3%ADa+20+De+Julio/@0.8239076,-77.6360418,16z/data=!4m6!3m5!1s0x8e296beb89daaa29:0xc2f2a670b02cab80!8m2!3d0.8241541!4d-77.6345062!16s%2Fg%2F11dxcjmzv7?entry=ttu&g_ep=EgoyMDI0MDkxMS4wIKXMDSoASAFQAw%3D%3D'
@@ -105,7 +107,7 @@ const recomendations = [
 <section class='w-[90%] flex flex-col mx-auto'>
     <h2 class="text-center text-gray-700/80 text-2xl md:text-3xl mb-8">¿ Que y donde comer ?</h2>
 
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <main class="grid grid-cols-1 gap-4 md:grid-cols-2">
         {recomendations.map((rec) => (
       <div
         class={`${
@@ -120,18 +122,30 @@ const recomendations = [
                 place.map
               } bg-cover bg-center rounded-md shadow-md p-2`}
             >
-            <div class="backdrop-blur-sm p-2">
-              <h4 class="text-md font-semibold">{place.name}</h4>
-              <p>{place.description}</p>
-              <p class="font-bold">{place.price}</p>
-              <a href={place.location} target="_blank" class="text-blue-500 underline">
-                Ver en Google Maps
-              </a>
+                <div class="backdrop-blur-sm flex justify-between p-2">
+                    <article>
+                    <h4 class="text-md font-semibold">{place.name}</h4>
+                    <p>{place.description}</p>
+                    
+                        <a href={place.location} target="_blank" class="group  w-44 rounded-xl  flex px-3 py-1 justify-center items-center gap-x-3 ring-2 ring-transparent hover:scale-110 hover:ring-blue-700 transition-all duration-200 ">
+                            
+                            <Google />
+                            <span class=" -translate-x-28 text-transparent group-hover:text-blue-700 group-hover:translate-x-0 transition-all duration-300">
+                            Ver en Maps
+                            </span>
+                        </a>
+                    </article>
+
+                    <aside class="absolute right-1 size-10 bg-amber-100 flex items-center justify-center rounded-full ring-2 ring-emerald-800">
+                    <p class="font-bold text-lg text-emerald-800 ">
+                        {place.price}
+                    </p>
+                    </aside>
                 </div>
             </div>
           ))}
         </div>
       </div>
     ))}
-  </div>
+    </main>
     </section>

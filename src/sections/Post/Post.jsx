@@ -55,7 +55,7 @@ const Post = () => {
         <section
             className="group flex flex-col mx-auto mt-4 items-center justify-center w-[90%] md:w-1/2 lg:w-1/4 h-[600px] lg:h-[700px]  "
         >
-            <h2 className="mx-auto text-gray-700/80 text-2xl">¿Que hacer en Ipiales?</h2>
+            <h2 className="mx-auto my-4 text-gray-700/80 text-2xl md:text-3xl">¿Que hacer en Ipiales?</h2>
 
             <HeaderPost client:visible />
             <main className=" w-full h-96  transition-all ">

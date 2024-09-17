@@ -8,6 +8,7 @@ import Header from '../components/Header.astro';
 import { TimeLine } from '../sections/OrdenDia/TimeLine';
 import Post from '../sections/Post/Post';
 import { Registration } from '../components/Registration';
+import Food from '../components/Food.astro';
 
 ---
 
@@ -18,6 +19,7 @@ import { Registration } from '../components/Registration';
 			<TimeLine />
 			<Location />
 			<Post client:visible />
+			<Food />
 			<Registration client:visible />
 		</section>
 		</main>

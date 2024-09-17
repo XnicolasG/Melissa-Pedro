@@ -1,0 +1,11 @@
+---
+// ButtonComponent.astro
+const { class: extraClasses, ...restProps } = Astro.props;
+---
+
+<a 
+  class={`rounded-full border border-white/10 flex shadow-lg justify-center items-center cursor-pointer gap-x-2 py-1 px-2 text-sm lg:text-base md:py-2 md:px-4 bg-white/5 hover:scale-105 transition ${extraClasses || ''}`}
+  {...restProps}
+>
+  <slot />
+</a>

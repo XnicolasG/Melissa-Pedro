@@ -1,3 +1,10 @@
+---
+import Google from "../../components/icons/Google"
+import Button from "./Button.astro"
+import {Waze} from '../../components/icons/Waze'
+import WhatsApp from "../../components/icons/WhatsApp"
+---
+
 <div class="hidden md:block">
     <article class='contFaqs'>
         <h4 class="faqsTitle">¿Cómo llegar al Santuario?</h4>
@@ -25,18 +32,63 @@
         <h4 class="faqsTitle">¿Cómo llegar a la recepción?</h4>
         <p class="answer">Los buses los llevarán al lugar de la recepción al salir de la ceremonia.</p>
         <p class="answer">En caso de que vayas en carro, puedes buscar en Waze Salón de eventos Santa Isabel.</p>
-        <div class="mt-2">
-            <a href="https://www.google.com/maps/place/Salon+de+Eventos+Santa+Isabel/@0.8253983,-77.641024,14z/data=!4m15!1m8!3m7!1s0x8e296bc895d6b5e7:0xb26224384fc915ea!2sSalon+de+Eventos+Santa+Isabel!8m2!3d0.8252745!4d-77.6409107!10e5!16s%2Fg%2F11tn1s3578!3m5!1s0x8e296bc895d6b5e7:0xb26224384fc915ea!8m2!3d0.8252745!4d-77.6409107!16s%2Fg%2F11tn1s3578?entry=ttu&g_ep=EgoyMDI0MDkxMS4wIKXMDSoASAFQAw%3D%3D" class="btn">Google Maps</a>
-            <a href="https://www.waze.com/es/live-map/directions/hotel-santa-isabel-ipiales?to=place.w.185073672.1850474579.11745836" class="btn">Waze</a>
+        <div class="mt-2 w-1/2 flex justify-around">
+            <Button 
+            class='w-1/3 ring-2 ring-blue-500 '
+            href="https://www.google.com/maps/place/Salon+de+Eventos+Santa+Isabel/@0.8253983,-77.641024,14z/data=!4m15!1m8!3m7!1s0x8e296bc895d6b5e7:0xb26224384fc915ea!2sSalon+de+Eventos+Santa+Isabel!8m2!3d0.8252745!4d-77.6409107!10e5!16s%2Fg%2F11tn1s3578!3m5!1s0x8e296bc895d6b5e7:0xb26224384fc915ea!8m2!3d0.8252745!4d-77.6409107!16s%2Fg%2F11tn1s3578?entry=ttu&g_ep=EgoyMDI0MDkxMS4wIKXMDSoASAFQAw%3D%3D">
+                <Google />
+            <span>
+                Maps
+            </span>
+            </Button>
+            <Button
+            class='w-1/3 ring-2 ring-sky-500'
+            href='https://waze.com/ul/hd20u9q0qr'>
+            <Waze />
+            <span>
+
+                Waze
+            </span>
+            </Button>
+           
         </div>
     </article>
 
     <article class='contFaqs'>
         <h4 class="faqsTitle">Maquillaje y peinado</h4>
         <p class="answer">Puedes sacar cita en Viviana peluquería, reserva en el número: +57 3173015243.</p>
-        <div class="mt-2">
-            <a href="tel:+573173015243" class="btn">Llamar</a>
-            <a href="https://wa.me/573173015243?" class="btn">WhatsApp</a>
+        <div class="mt-2 w-1/2 flex justify-around">
+            <Button
+            class="w-1/3 ring-2 ring-teal-500"
+            href="tel:+573173015243"
+            >
+            📞
+                <span>
+                    Llamar
+                </span>
+                </Button>
+                <Button
+                class="w-1/3 ring-2 ring-green-500"
+                href="https://wa.me/573173015243?"
+                >
+                <WhatsApp />
+                    <span>WhatsApp</span>
+                </Button>
         </div>
+    </article>
+    <article class='contFaqs'>
+        <h4 class="faqsTitle">¿Cómo vestirme?</h4>
+        <p class="answer">Recuerda el código de vestimenta es formal.
+            <br/>
+            <span class=" pl-2">
+                Los hombres de traje y las mujeres de vestido largo
+            </span>
+        </p>
+        <p class="text-xl w-1/2 text-center text-emerald-700">Colores reservados</p>
+        <ul class="faqsTip">
+            <li>
+                
+            </li>
+        </ul>
     </article>
 </div>

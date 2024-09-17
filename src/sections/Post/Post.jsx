@@ -3,6 +3,7 @@ import { useId, useState } from "react";
 import FooterPost from "../Location/FooterPost";
 import HeaderPost from "../Location/HeaderPost";
 import { Carousel } from "./Carousel";
+import { Gallery } from "./components/Gallery";
 
 const Post = () => {
 
@@ -53,34 +54,41 @@ const Post = () => {
 
     return (
         <section
-            className="group flex flex-col mx-auto mt-4 items-center justify-center w-[90%] md:w-1/2 lg:w-1/4 h-[600px] lg:h-[700px]  "
+            className="group flex flex-col mx-auto mt-4 items-center justify-center w-[90%]  h-[600px] lg:h-[700px]  "
         >
             <h2 className="mx-auto my-4 text-gray-700/80 text-2xl md:text-3xl">¿Que hacer en Ipiales?</h2>
 
-            <HeaderPost client:visible />
-            <main className=" w-full h-96  transition-all ">
-                <div
-                    className="flex w-full h-full "
-                >
-                    <Carousel
-                        current={current}
-                        incrementState={incrementState}
-                        decrementState={decrementState}
-                    >
-                        {
-                            PostImages.map((post) => (
-                                <img
-                                    key={post.id}
-                                    className="w-full object-fit "
-                                    src={post.src}
-                                    alt={post.alt}
-                                />
-                            ))
-                        }
-                    </Carousel>
+            <section className="flex justify-around w-full ">
+
+                <div className="w-full md:w-1/2 lg:w-1/3">
+
+                    <HeaderPost client:visible />
+                    <main className=" w-full h-96  transition-all ">
+                        <div
+                            className="flex w-full h-full "
+                        >
+                            <Carousel
+                                current={current}
+                                incrementState={incrementState}
+                                decrementState={decrementState}
+                            >
+                                {
+                                    PostImages.map((post) => (
+                                        <img
+                                            key={post.id}
+                                            className="w-full object-fit "
+                                            src={post.src}
+                                            alt={post.alt}
+                                        />
+                                    ))
+                                }
+                            </Carousel>
+                        </div>
+                    </main>
+                    <FooterPost current={current} posts={PostImages} client:visible />
                 </div>
-            </main>
-            <FooterPost current={current} posts={PostImages} client:visible />
+                <Gallery current={current} client:visible />
+            </section>
         </section>
 
     )

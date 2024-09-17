@@ -28,7 +28,9 @@ export const Registration = () => {
                 </article>
                 <aside className="w-full flex justify-center items-start gap-x-4 ring-2 ring-amber-300 bg-amber-100 p-4 rounded-r-xl rounded-3xl rounded-ss-none">
                     <div className="w-[10%] md:w-[4%]">
-                        <Light />
+                        <a href="/Registro">
+                            <Light />
+                        </a>
                     </div>
                     <article className="w-[90%] text-pretty text-lg ">
                         <p>
@@ -40,9 +42,9 @@ export const Registration = () => {
                     </article>
                 </aside>
                 <p className="flex px-4 items-center text-gray-500">
-                    Para registrar tu asistencia puedes hacerlo por medio de este formulario ⬇️ o por WhatsApp dando click aquí
+                    Para registrar tu asistencia puedes hacerlo por medio de este formulario ⬇️ o por WhatsApp dando click aquí por si tienes mas dudas con respecto a  la boda
                     <a 
-                    className="flex items-center gap-x-2 px-2 py-1 rounded-full ring-1 bg-emerald-700 ring-emerald-900 mx-2 hover:scale-105 transition-all"
+                    className="flex items-center gap-x-2 px-2 py-1 rounded-full ring-1 bg-emerald-700 ring-emerald-900 mx-2 hover:scale-105 transition-all duration-150"
                     href="https://wa.me/573113249582?text=Hola%20Monica"
                     target="blank_">
                     <WhatsApp />

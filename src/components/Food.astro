@@ -127,7 +127,7 @@ const recomendations = [
                     <h4 class="text-md font-semibold">{place.name}</h4>
                     <p>{place.description}</p>
                     
-                        <a href={place.location} target="_blank" class="group  w-44 rounded-xl  flex px-3 py-1 justify-center items-center gap-x-3 ring-2 ring-transparent hover:scale-110 hover:ring-blue-700 transition-all duration-200 ">
+                        <a href={place.location} target="_blank" class="group  max-w-44 rounded-xl  flex px-3 py-1 justify-center items-center gap-x-3 ring-2 ring-transparent hover:scale-110 hover:shadow-md hover:ring-blue-700 transition-all duration-200 ">
                             
                             <Google />
                             <span class=" -translate-x-28 text-transparent group-hover:text-blue-700 group-hover:translate-x-0 transition-all duration-300">
@@ -136,7 +136,7 @@ const recomendations = [
                         </a>
                     </article>
 
-                    <aside class="absolute right-1 size-10 bg-amber-100 flex items-center justify-center rounded-full ring-2 ring-emerald-800">
+                    <aside class="absolute -top-1 right-0 size-8 md:size-10 bg-amber-100 flex items-center justify-center rounded-full ring-2 ring-emerald-800">
                     <p class="font-bold text-lg text-emerald-800 ">
                         {place.price}
                     </p>

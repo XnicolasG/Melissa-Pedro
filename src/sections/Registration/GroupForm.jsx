@@ -198,7 +198,7 @@ export const GroupForm = () => {
             <aside className="w-1/2 h-[550px] hidden md:block">
                 <img
                     className="rounded-xl object-cover object-center w-full h-full"
-                    src='/img/MPProfile.jpg'
+                    src='/img/MPL.jpg'
                     alt="Pedro & Melissa" />
             </aside>
 

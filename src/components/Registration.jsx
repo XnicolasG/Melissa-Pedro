@@ -41,14 +41,15 @@ export const Registration = () => {
                         </p>
                     </article>
                 </aside>
-                <p className="flex px-4 items-center text-gray-500">
-                    Para registrar tu asistencia puedes hacerlo por medio de este formulario ⬇️ o por WhatsApp dando click aquí por si tienes mas dudas con respecto a  la boda
-                    <a 
-                    className="flex items-center gap-x-2 px-2 py-1 rounded-full ring-1 bg-emerald-700 ring-emerald-900 mx-2 hover:scale-105 transition-all duration-150"
-                    href="https://wa.me/573113249582?text=Hola%20Monica"
-                    target="blank_">
-                    <WhatsApp />
-                    </a>    
+                <p className="flex flex-wrap px-4 items-center text-pretty text-gray-500">
+                    Registra tu asistencia en el formulario ⬇️ o contáctanos por WhatsApp
+                    <a
+                        className="flex items-center gap-x-2 px-2 py-1 rounded-full ring-1 bg-emerald-700 ring-emerald-900 mx-2 hover:scale-105 transition-all duration-150"
+                        href="https://wa.me/573113249582?text=Hola%20Monica"
+                        target="blank_">
+                        <WhatsApp />
+                    </a>
+                    si tienes dudas sobre la boda.
                 </p>
                 <section>
                     <p className="text-gray-500 text-2xl mb-6">Realizar registro como:</p>

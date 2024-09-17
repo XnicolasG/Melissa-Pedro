@@ -35,6 +35,9 @@
     .answer{
       @apply before:content-['•'] pl-2
     }
+    .colors{
+      @apply size-8 rounded-full
+    }
   }
 
   th{

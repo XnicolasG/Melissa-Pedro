@@ -55,7 +55,6 @@ const Post = () => {
         <section
             className="group flex flex-col mx-auto mt-4 items-center justify-center w-[90%] md:w-1/2 lg:w-1/4 h-[600px] lg:h-[700px]  "
         >
-            <h1 className="mx-auto text-5xl">Recomendaciones</h1>
             <h2 className="mx-auto text-gray-700/80 text-2xl">¿Que hacer en Ipiales?</h2>
 
             <HeaderPost client:visible />

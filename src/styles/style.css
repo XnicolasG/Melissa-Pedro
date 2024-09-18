@@ -3,6 +3,19 @@
 @tailwind utilities;
 
 
+@font-face {
+  font-family: "Halimun";
+  src: url("/fonts/Halimun.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Belgiano";
+  src: url("/fonts/Belgiano.otf") format("opentype");
+}
+html {
+  background: #e7e4da;
+  background: #ece3de;
+  scroll-behavior: smooth;
+}
 
 @layer components {
   .timeTitle {

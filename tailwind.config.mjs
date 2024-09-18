@@ -6,7 +6,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				Belgiano:['Belgiano', 'sans-serif']
+				Halimun:['Halimun', 'sans-serif'],
+				Belgiano:['Belgiano', 'sans-serif'],
 			},
 			backgroundImage:{
 				main : "url('/img/MPProfile.jpg')",

@@ -26,24 +26,13 @@ const { title } = Astro.props;
 		<title>{title}</title>
 		<ViewTransitions />
 	</head>
-	<body>
+	<body class="font-Belgiano tracking-wider">
 		<Navbar />
 		<slot />
 	</body>
 </html>
 <style is:global>
-	@font-face {
-		font-family: "Belgiano";
-		src: url("/fonts/Belgiano.otf") format("otf");
-	}
-	html {
-		/* font-family: system-ui, sans-serif; */
-		background: #e7e4da;
-		background: #ece3de;
-		/* scrollbar-width:  none; Firefox */
-		scroll-behavior: smooth;
-		font-family: "Belgiano";
-	}
+	
 	@supports selector(::-webkit-scrollbar) {
 		::-webkit-scrollbar {
 			width: 12px;

@@ -15,13 +15,13 @@ export const Registration = () => {
     }
     return (
         <section id="Registro" className="flex flex-col my-8 w-[90%] md:w-3/3 mx-auto ">
-            <h2 className="mx-auto text-center text-amber-50  text-5xl bg-emerald-800 p-2 w-full rounded-t-md">
-                Registro
+            <h2 className="mx-auto text-center text-amber-50 text-4xl md:text-5xl bg-emerald-800 py-2 pb-3 w-full rounded-t-xl">
+                        Registro
             </h2>
             <div className="flex flex-col gap-6 px-4 py-2">
 
-                <article className="w-full mx-auto flex flex-col items-end p-4 -ml-[6%]">
-                    <h3 className="border-b border-gray-400 text-2xl md:text-3xl uppercase text-gray-500">
+                <article className="w-full mx-auto flex flex-col items-end p-2 md:p-4 -ml-[6%]">
+                    <h3 className="border-b border-gray-400 text-xl md:text-3xl uppercase text-gray-500">
                         Save the date
                     </h3>
                     <p className="text-gray-500 text-lg md:text-xl">DIC 7, 2024</p>

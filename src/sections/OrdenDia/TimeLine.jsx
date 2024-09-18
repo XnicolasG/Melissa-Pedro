@@ -38,7 +38,12 @@ export const TimeLine = () => {
 
   return (
     <div className='w-full mt-8 flex flex-col justify-center items-center'>
-      <h2 className='text-4xl'>Orden del día</h2>
+      <div className="relative  mx-auto ">
+        <h2 className="text-5xl md:text-7xl text-center text-emerald-800/20">
+          Orden del día
+        </h2>
+        <h2 className='text-xl md:text-3xl text-center font-Halimun font-semibold absolute top-3 md:top-5 left-[16%] ' >Orden del día</h2>
+      </div>
       <section className='my-12 hidden md:block'>
 
         <ol class="items-center sm:flex">
@@ -69,7 +74,7 @@ export const TimeLine = () => {
 
       </section>
       <section className='block md:hidden'>
-          <MobileView client:visible />
+        <MobileView client:visible />
       </section>
     </div>
   )

@@ -4,7 +4,7 @@
 
 <nav
     id="header"
-    class="fixed flex justify-center pb-6 pt-4 -top-1 w-full mx-auto lg:my-2 z-20"
+    class="fixed flex justify-center pb-6 pt-4 -top-1 md:-top-2 w-full mx-auto lg:my-2 z-20"
 >
     <h1 class="text-3xl font-Halimun text-center flex items-start md:text-5xl text-emerald-900 transition-all duration-150">Melissa y Pedro</h1>
 </nav>
@@ -12,7 +12,7 @@
 <script>
     window.addEventListener("scroll", function () {
         const header = document.getElementById('header');
-        if (window.scrollY > 100) {
+        if (window.scrollY > 90) {
             header?.classList.add('bg-stone-200')
         }else{
             header?.classList.remove('bg-stone-200')

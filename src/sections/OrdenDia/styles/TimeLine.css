@@ -1,0 +1,48 @@
+.bounce{
+    animation: bounce 5s ease-in-out  1 forwards ;
+}
+.bounce-1 {
+    animation-delay: 5s;
+  }
+  
+  .bounce-2 {
+    animation-delay: 10s;
+  }
+  
+  .bounce-3 {
+    animation-delay: 15s;
+  }
+  
+  .bounce-4 {
+    animation-delay: 20s;
+  }
+  
+  .bounce-5 {
+    animation-delay: 25s;
+  }
+  
+  .bounce-6 {
+    animation-delay: 30s;
+  }
+  
+  .bounce-7 {
+    animation-delay: 35s;
+  }
+
+@keyframes bounce {
+    0%,100%{
+        transform: translateY(0);
+    }
+    15%{
+        transform: translateY(-10px);
+    }
+    45%{
+        transform: translateY(-15px);
+    }
+    75%{
+        transform: translateY(-20px);
+    }
+    30%,60%,90%{
+        transform: translateY(0px);
+    }
+}

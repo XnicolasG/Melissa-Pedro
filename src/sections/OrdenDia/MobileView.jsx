@@ -1,4 +1,4 @@
-
+import './styles/MobileView.css'
 
 export const MobileView = () => {
   const breakpoints = [
@@ -48,7 +48,7 @@ export const MobileView = () => {
             item.number !== 7 
             ?
               <div className="flex border rounded-lg p-4 sm:w-52 bg-white shadow-md">
-                <div className="flex items-center justify-center  text-emerald-700 font-bold text-5xl">
+                <div className={`bouncer bouncer-${item.number} flex items-center justify-center  text-emerald-700 font-bold text-5xl`}>
                   {item.number}
                 </div>
                 <div className="ml-4">
@@ -58,7 +58,7 @@ export const MobileView = () => {
               </div>
               :
               <div className="flex border rounded-lg p-4 col-span-2 sm:w-52 bg-white shadow-md">
-                <div className="flex items-center justify-center  text-emerald-700 font-bold text-5xl">
+                <div className={`bouncer bouncer-${item.number} flex items-center justify-center  text-emerald-700 font-bold text-5xl`}>
                   {item.number}
                 </div>
                 <div className="ml-4">

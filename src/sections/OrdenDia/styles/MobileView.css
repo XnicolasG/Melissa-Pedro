@@ -1,0 +1,55 @@
+.bouncer{
+    animation: bouncer 5s ease-in-out  forwards ;
+}
+
+.bouncer-1 {
+    animation-delay: 5s;
+  }
+  
+  .bouncer-2 {
+    animation-delay: 10s;
+  }
+  
+  .bouncer-3 {
+    animation-delay: 15s;
+  }
+  
+  .bouncer-4 {
+    animation-delay: 20s;
+  }
+  
+  .bouncer-5 {
+    animation-delay: 25s;
+  }
+  
+  .bouncer-6 {
+    animation-delay: 30s;
+  }
+  
+  .bouncer-7 {
+    animation-delay: 35s;
+  }
+
+@keyframes bouncer {
+    0%{
+        transform: translateY(0);
+    }
+    15%{
+        transform: translateY(-10px);
+    }
+    45%{
+        transform: translateY(-15px);
+    }
+    75%{
+        transform: translateY(-25px);
+    }
+    30%,60%{
+        transform: translateY(0px);
+    }
+    90%{
+        transform: translateY(5px);
+    }
+    100%{
+        transform: translateY(-25px);
+    }
+}

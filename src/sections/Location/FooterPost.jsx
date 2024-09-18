@@ -15,11 +15,11 @@ const FooterPost = ({ current, posts }) => {
             <article>
                 <br />
                         <div className="text-white">
-                            <h3 className="font-semibold">
+                            <h3 className="font-semibold px-1">
                                 {posts[current].title}
                             </h3>
 
-                            <p >
+                            <p className="px-1" >
                                 {posts[current].description}
                             </p>
                         </div>

@@ -94,7 +94,7 @@ export const CoupleForm = () => {
             </div>
             <div id="attending" className="flex flex-col sm:flex-row justify-start items-center gap-x-6 mt-8 w-full ">
               <article className='flex flex-col'>
-                <p className="text-xl text-pretty text-emerald-800">¿ Contaremos con ustedes para celebrar este momento tan importante ?</p>
+                <p className="text-xl text-pretty text-emerald-800">¿Contaremos con ustedes para celebrar este momento tan importante?</p>
                 <p className={`text-sm text-pretty text-red-800/80 transition-all ${errorState.attendanceError ? 'block' : 'hidden'} `}>
                   recuerda seleccionar una opción para continuar
                 </p>
@@ -118,7 +118,7 @@ export const CoupleForm = () => {
               isAttending &&
               <div className="flex flex-col sm:flex-row gap-x-6 items-center  mt-8 w-full" >
                 <article className='flex flex-col'>
-                  <p className="text-xl text-emerald-800"> ¿ Que tipo de menú prefieren ?</p>
+                  <p className="text-xl text-emerald-800"> ¿Qué tipo de menú prefieren?</p>
                   <p className={`text-sm text-pretty text-red-800/80 transition-all ${errorState.platesError ? 'block' : 'hidden'} `}>
                     El número de platos debe coincidir con el número de personas (2)
                   </p>
@@ -139,12 +139,12 @@ export const CoupleForm = () => {
               isAttending
                 ?
                 <p className="text-emerald-800 text-2xl">
-                  {username} gracias por la confirmación, los esperamos para festejar.
+                  {username} Gracias por la confirmación, los esperamos para festejar.
 
                 </p>
                 :
                 <p className="text-emerald-800 text-2xl">
-                  {username} gracias por su registro, esperamos podamos vernos en otra ocasión.
+                  {username} Gracias por su registro, esperamos podamos vernos en otra ocasión.
                 </p>
             }
             <a className="registrationButton text-xl text-center bottom-0 w-1/3 my-8" href="#home">Ir al inicio</a>

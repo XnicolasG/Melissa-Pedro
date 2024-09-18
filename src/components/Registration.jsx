@@ -34,10 +34,9 @@ export const Registration = () => {
                     </div>
                     <article className="w-[90%] text-pretty text-lg ">
                         <p>
-                            Si vas a registrarte como parte de una pareja o grupo familiar, asegúrate de que solo una persona del
-                            grupo o pareja realice el registro. Los demás integrantes
+                            Si te vas a registrar como parte de una pareja o grupo familiar, asegúrate de que solo una persona del grupo o pareja realice el registro. Los demás integrantes
                             <strong className="text-emerald-800 text-xl"> no necesitan </strong>
-                            registrarse de forma individual para evitar registros repetidos.
+                            registrarse de forma individual para evitar registros duplicados.
                         </p>
                     </article>
                 </aside>

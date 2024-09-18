@@ -98,9 +98,9 @@ export const GroupForm = () => {
                         </div>
                         <div id="attending" className="flex flex-col sm:flex-row justify-start items-center gap-x-6 mt-8 w-full ">
                             <article className='flex flex-col'>
-                                <p className="text-xl text-pretty text-emerald-800">¿ Contaremos con ustedes para celebrar este momento tan importante ?</p>
+                                <p className="text-xl text-pretty text-emerald-800">¿Contaremos con ustedes para celebrar este momento tan importante?</p>
                                 <p className={`text-sm text-pretty text-red-800/80 transition-all ${errorState.attendanceError ? 'block' : 'hidden'} `}>
-                                    recuerda seleccionar una opción para continuar
+                                    Recuerda seleccionar una opción para continuar
                                 </p>
                             </article>
                             <div className="flex items-center my-2 gap-x-2">
@@ -123,9 +123,9 @@ export const GroupForm = () => {
                             <>
                                 <div className='flex flex-col sm:flex-row gap-x-6 items-center  mt-8 w-full'>
                                     <article>
-                                        <p className='text-xl  text-emerald-800'>¿ Cuantos integrantes tiene este grupo?</p>
+                                        <p className='text-xl  text-emerald-800'>¿Cuantos integrantes tiene este grupo?</p>
                                         <p className='text-sm text-pretty text-gray-500'>
-                                            para registros como grupo mínimo deben ser 3, máximo 10
+                                            Para registros como grupo mínimo deben ser 3, máximo 10
                                         </p>
                                     </article>
                                     <div className='flex item-center'>
@@ -152,7 +152,7 @@ export const GroupForm = () => {
                                 </div>
                                 <div className="flex flex-col sm:flex-row gap-x-6 items-center  mt-8 w-full" >
                                     <article className='flex flex-col'>
-                                        <p className="text-xl text-emerald-800"> ¿ Que tipo de menú prefieren ?</p>
+                                        <p className="text-xl text-emerald-800"> ¿Qué tipo de menú prefieren?</p>
                                         <p className={`text-sm text-pretty text-red-800/80 transition-all ${errorState.platesError ? 'block' : 'hidden'} `}>
                                             El número de platos debe coincidir con el número de personas ({totalMembers})
                                         </p>
@@ -166,7 +166,7 @@ export const GroupForm = () => {
                                 </div>
                                 <section className='flex flex-col gap-x-6  mt-8 w-full'>
                                     <p className='text-xl text-emerald-800'>
-                                        ¿ Cuentanos quienes son los {totalMembers ? totalMembers : ''} integrantes de {username ? username : 'este grupo'} ?
+                                        ¿Cuentanos quienes son los {totalMembers ? totalMembers : ''} integrantes de {username ? username : 'este grupo'}?
                                     </p>
                                     <textarea
                                         onChange={handleDescription}
@@ -184,12 +184,12 @@ export const GroupForm = () => {
                             isAttending
                                 ?
                                 <p className="text-emerald-800 text-2xl">
-                                    {username} gracias por la confirmación, los esperamos con los brazos abiertos.
+                                    {username} Gracias por la confirmación, los esperamos con los brazos abiertos.
 
                                 </p>
                                 :
                                 <p className="text-emerald-800 text-2xl">
-                                    {username} gracias por su registro, esperamos podamos vernos en otra ocasión.
+                                    {username} Gracias por su registro, esperamos podamos vernos en otra ocasión.
                                 </p>
                         }
                         <a className="registrationButton text-xl text-center bottom-0 w-1/3 my-8" href="#home">Ir al inicio</a>

@@ -6,13 +6,13 @@
     id="header"
     class="fixed flex justify-center py-2 -top-1 w-full mx-auto lg:my-2 z-20"
 >
-    <h1 class="text-4xl md:text-6xl text-emerald-900">Melissa & Pedro</h1>
+    <h1 class="text-4xl  md:text-6xl text-emerald-900 transition-all duration-150">Melissa & Pedro</h1>
 </nav>
 
 <script>
     window.addEventListener("scroll", function () {
         const header = document.getElementById('header');
-        if (window.scrollY > 150) {
+        if (window.scrollY > 120) {
             header?.classList.add('bg-stone-200')
         }else{
             header?.classList.remove('bg-stone-200')

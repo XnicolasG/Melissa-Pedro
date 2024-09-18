@@ -14,7 +14,7 @@ const recomendations = [
             },
             {
                 name:'La Casa verde',
-                description:'Otra opción de comida local. Este es un asadero con comida tradicional.',
+                description:'Otra opción de comida local. Este es un asadero de comida tradicional.',
                 price: '$$',
                 map: 'bg-casaVerde',
                 location: 'https://www.google.com/maps/place/Asadero+Casa+Verde/@0.8210665,-77.6240395,17z/data=!3m1!4b1!4m6!3m5!1s0x8e296b904f975f3b:0x1ea79c5b2bf74d43!8m2!3d0.8210611!4d-77.6214646!16s%2Fg%2F11f3p17n3p?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D'
@@ -49,18 +49,18 @@ const recomendations = [
 
     },
     {
-        title: 'Nuestro gran recomendación es que pruebes comida china.',
+        title: 'Nuestra gran recomendación es que pruebes comida china.',
         places: [
             {
                 name:'Casa China',
-                description:'Si ya estás en Tulcán, puedes probar uno de los mejores.',
+                description:'Si ya estás en Tulcán, puedes probar una de las mejores.',
                 price: '$$',
                 map: 'bg-casaChina',
                 location: 'https://www.google.com/maps/place/Casa+China/@0.8030748,-77.7325095,17z/data=!3m1!4b1!4m6!3m5!1s0x8e296f2f9315682d:0x18e06b7f5a399184!8m2!3d0.8030694!4d-77.7299346!16s%2Fg%2F11s1954mz3?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D'
             },
             {
                 name:'Fortunaz',
-                description:'Si planeas salir de Ipiales puedes probar esta opción',
+                description:'Si no planeas salir de Ipiales puedes probar esta opción',
                 price: '$$',
                 map: 'bg-fortunaz',
                 location: 'https://www.google.com/maps/place/Asadero+Casa+Verde/@0.8210665,-77.6240395,17z/data=!3m1!4b1!4m6!3m5!1s0x8e296b904f975f3b:0x1ea79c5b2bf74d43!8m2!3d0.8210611!4d-77.6214646!16s%2Fg%2F11f3p17n3p?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D'
@@ -86,7 +86,7 @@ const recomendations = [
         places: [
             {
                 name:'Las Brasas Parrila',
-                description:'Un buena lugar si quieres una buena carne.',
+                description:'Un buen lugar si quieres una buena carne.',
                 price: '$$',
                 map: 'bg-lasBrasas',
                 location: 'https://www.google.com/maps/place/Las+Brasas+Parrilla/@0.8297778,-77.6562667,17z/data=!3m1!4b1!4m6!3m5!1s0x8e2969ef133c116b:0xcc57542ca854bb20!8m2!3d0.8297724!4d-77.6536918!16s%2Fg%2F11pv0j1v55?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D'
@@ -122,15 +122,15 @@ const recomendations = [
                 place.map
               } bg-cover bg-center rounded-md shadow-md p-2`}
             >
-                <div class="backdrop-blur-sm flex justify-between p-2">
+                <div class="backdrop-blur-sm flex justify-between p-2.5">
                     <article>
                     <h4 class="text-md font-semibold">{place.name}</h4>
                     <p>{place.description}</p>
                     
-                        <a href={place.location} target="_blank" class="group  max-w-44 rounded-xl  flex px-3 py-1 justify-center items-center gap-x-3 ring-2 ring-transparent hover:scale-110 hover:shadow-md hover:ring-blue-700 transition-all duration-200 ">
+                        <a href={place.location} target="_blank" class="group  max-w-36 rounded-xl mt-1 flex px-2 py-0.5 justify-center items-center gap-x-3 ring-2 ring-blue-700 md:ring-transparent hover:scale-110 hover:shadow-md hover:ring-blue-700 transition-all duration-200 ">
                             
                             <Google />
-                            <span class=" -translate-x-28 text-transparent group-hover:text-blue-700 group-hover:translate-x-0 transition-all duration-300">
+                            <span class="text-blue-700  md:-translate-x-28 md:text-transparent  group-hover:text-blue-700 group-hover:translate-x-0 transition-all duration-300">
                             Ver en Maps
                             </span>
                         </a>

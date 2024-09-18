@@ -5,6 +5,9 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+			fontFamily: {
+				Belgiano:['Belgiano', 'sans-serif']
+			},
 			backgroundImage:{
 				main : "url('/img/MPProfile.jpg')",
 				mainWide : "url('/img/MPWide.jpg')",

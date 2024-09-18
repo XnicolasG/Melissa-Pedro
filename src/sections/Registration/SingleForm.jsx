@@ -105,7 +105,7 @@ export const SingleForm = () => {
                         </div>
                         <div id="attending" className="flex flex-col sm:flex-row justify-start items-center gap-x-6 mt-8 w-full ">
                             <article className='flex flex-col'>
-                                <p className="text-xl text-pretty text-emerald-800">¿ Contaremos contigo para celebrar este momento tan importante ?</p>
+                                <p className="text-xl text-pretty text-emerald-800">¿Contaremos contigo para celebrar este momento tan importante?</p>
                                 <p className={`text-sm text-pretty text-red-800/80 transition-all ${errorState.attendanceError ? 'block' : 'hidden'} `}>
                                     recuerda seleccionar una opción para continuar
                                 </p>
@@ -129,9 +129,9 @@ export const SingleForm = () => {
                             isAttending &&
                             <div className="flex flex-col sm:flex-row gap-x-6  mt-8 w-full" >
                                 <article className="flex flex-col">
-                                    <p className="text-xl text-emerald-800"> ¿Que tipo de menú prefieres?</p>
+                                    <p className="text-xl text-emerald-800"> ¿Qué tipo de menú prefieres?</p>
                                     <p className={`text-pretty text-red-800/80 transition-all ${isMealEmpty ? 'block' : 'hidden'}`}>
-                                        Selecciona una opción valida
+                                        Selecciona una opción válida
                                     </p>
                                 </article>
                                 <select

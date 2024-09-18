@@ -5,6 +5,9 @@
 
 
 @layer components {
+  .timeTitle{
+    @apply text-emerald-800 lg:text-xl  font-semibold text-pretty
+  }
     .countdown-item {
       @apply flex flex-col text-white/80 justify-center items-center font-semibold;
     }

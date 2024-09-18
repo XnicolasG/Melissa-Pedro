@@ -20,8 +20,8 @@ const Post = () => {
             id: useId(),
             src: '/img/Tulcan_cemetery.webp',
             alt: "Cementerio de Tulcan, Ecuador ",
-            title: 'Cementerio de Tulcan 🌲',
-            description: '¡No es un cementerio cualquiera! El Cementerio de Tulcan destaca por sus esculturas de cipreses tallados en formas sorprendentes. Un lugar único que combina arte y tradición, perfecto para una caminata reflexiva.'
+            title: 'Cementerio de Tulcán 🌲',
+            description: '¡No es un cementerio cualquiera! El Cementerio de Tulcán destaca por sus esculturas de cipreses tallados en formas sorprendentes. Un lugar único que combina arte y tradición, perfecto para una caminata reflexiva.'
         },
         {
             id: useId(),
@@ -63,7 +63,7 @@ const Post = () => {
                 <div className="w-full md:w-1/2 lg:w-1/3">
 
                     <HeaderPost client:visible />
-                    <main className=" w-full h-96  transition-all ">
+                    <main className=" w-full h-[400px] lg:h-[440px]  transition-all ">
                         <div
                             className="flex w-full h-full "
                         >

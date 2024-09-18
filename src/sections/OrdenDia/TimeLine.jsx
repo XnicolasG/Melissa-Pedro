@@ -1,4 +1,5 @@
-import React from 'react'
+import { MobileView } from "./MobileView"
+
 
 export const TimeLine = () => {
 
@@ -38,7 +39,7 @@ export const TimeLine = () => {
   return (
     <div className='w-full mt-8 flex flex-col justify-center items-center'>
       <h2 className='text-4xl'>Orden del día</h2>
-      <section className='my-12'>
+      <section className='my-12 hidden md:block'>
 
         <ol class="items-center sm:flex">
           {
@@ -66,6 +67,9 @@ export const TimeLine = () => {
 
         </ol>
 
+      </section>
+      <section className='block md:hidden'>
+          <MobileView client:visible />
       </section>
     </div>
   )

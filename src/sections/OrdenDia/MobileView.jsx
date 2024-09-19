@@ -17,7 +17,7 @@ export const MobileView = () => {
       number: 3,
       title: 'Coctel',
       Time: '6:00 PM',
-      icon: '🍷'
+      icon: '🥂'
     }, {
       number: 4,
       title: 'Recepción',

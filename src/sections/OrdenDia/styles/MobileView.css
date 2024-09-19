@@ -111,8 +111,8 @@
 .disco{
     opacity: 0;
     top: -25px;
-    animation: discoAppear 1s ease-in-out forwards;
-    animation-delay: 39.5s;
+    animation: discoAppear .5s ease-in-out forwards;
+    animation-delay: 39.7s;
 }
 @keyframes discoAppear {
     0%{

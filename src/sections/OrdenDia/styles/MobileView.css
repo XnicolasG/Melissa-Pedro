@@ -53,3 +53,73 @@
         transform: translateY(-25px);
     }
 }
+
+
+.icon{
+    /* transform: translateY(30px); */
+    opacity: 0;
+    animation: appear 1s ease-in-out forwards;
+}
+.icon-1 {
+    animation-delay: 9.5s;
+}
+.icon-2 {
+    animation-delay: 14.5s;
+}
+.icon-3 {
+    animation-delay: 19.5s;
+}
+.icon-4 {
+    animation-delay: 24.5s;
+}
+.icon-5 {
+    animation-delay: 29.5s;
+}
+.icon-6 {
+    animation-delay: 34.5s;
+}
+.icon-7 {
+    animation-delay: 39.5s;
+}
+@keyframes appear {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        /* transform: translateY(-20px); */
+    }
+}
+
+.party {
+    background: white;
+   animation: changeBg 1s ease-in-out forwards;
+   animation-delay: 39.5s;
+   transition: all;
+}
+@keyframes changeBg {
+    0%{
+        background: white;
+    }
+    100%{
+        background: #74ebd5; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #74ebd5, #acb6e5); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #74ebd5, #acb6e5);
+    }
+}
+
+.disco{
+    opacity: 0;
+    top: -25px;
+    animation: discoAppear 1s ease-in-out forwards;
+    animation-delay: 39.5s;
+}
+@keyframes discoAppear {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        top: 0;
+        opacity: 1;
+    }
+}

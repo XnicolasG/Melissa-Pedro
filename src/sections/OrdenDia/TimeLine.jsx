@@ -53,7 +53,7 @@ export const TimeLine = () => {
 
               <li key={index} class="relative w-20 md:w-28 lg:w-36 mb-6 sm:mb-0 flex-1 ">
                 <div class="flex items-center ">
-                  <div class={`bounce bounce-${index + 1} z-10 flex items-center justify-center size-10  rounded-full ring-0 ring-white bg-emerald-[#96A480] sm:ring-8 dark:ring-emerald-900 shrink-0`}>
+                  <div class={`bounce bounce-${index + 1} z-10 flex items-center justify-center size-10  rounded-full ring-0 ring-white dark:bg-[#96A480] sm:ring-8 dark:ring-emerald-900 shrink-0`}>
                     <p className='text-xl'>{item.icon}</p>
                   </div>
                   {

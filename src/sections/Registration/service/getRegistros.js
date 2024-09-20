@@ -15,7 +15,7 @@ export async function getRegistros() {
         )
         `);
         if (error) {
-            console.log('Error al traer registros:', error);
+            console.log('Error al traer registros:');
             return []  
         }        
         return data

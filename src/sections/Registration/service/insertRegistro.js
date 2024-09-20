@@ -28,7 +28,7 @@ export async function insertRegistro({
     ])
     .select(); 
 if (registrationError) {
-    console.error('Error al insertar registro:', registrationError);
+    console.error('Error al insertar registro:');
     return;
 }
 
@@ -45,7 +45,7 @@ const { data: mealsData, error: mealsError } = await supabase
     ]);
 
     if (mealsError) {
-        console.log('Error al insertar los platos:', mealsError);
+        console.log('Error al insertar los platos:');
 
     } else {
         console.log('Registro insertado correctamente:', 'registration:', registrationData, 'mealsData:', mealsData);

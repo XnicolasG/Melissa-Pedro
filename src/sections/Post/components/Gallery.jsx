@@ -28,7 +28,7 @@ export const Gallery = (current) => {
 
     return (
         <section className='justify-center w-1/2 hidden md:flex px-4'>
-            <div className='grid grid-cols-2 w-[80%] h-[720px] rounded-lg overflow-hidden'>
+            <div className='grid grid-cols-2 w-full h-[720px] rounded-lg overflow-hidden'>
                 {
                     photos[currentPost].images.map((img, index) => (
                         < React.Fragment key={index}>

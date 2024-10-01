@@ -1,14 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Countdown from '../sections/Header/Countdown.astro'
-import '../styles/style.css'
-import '@fontsource-variable/quicksand';
 import Location from '../components/Location.astro';
 import Header from '../components/Header.astro';
-import { TimeLine } from '../sections/OrdenDia/TimeLine';
 import Post from '../sections/Post/Post';
-import { Registration } from '../components/Registration';
 import Food from '../components/Food.astro';
+import Nosotros from '../components/Nosotros.astro';
+import { TimeLine } from '../sections/OrdenDia/TimeLine';
+import { Registration } from '../components/Registration';
+import '../styles/style.css'
 
 ---
 
@@ -20,6 +19,7 @@ import Food from '../components/Food.astro';
 			<Location />
 			<Post client:visible />
 			<Food />
+			<Nosotros />
 			<Registration client:visible />
 		</section>
 		</main>

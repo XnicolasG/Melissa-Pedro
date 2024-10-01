@@ -150,7 +150,7 @@ export const CoupleForm = () => {
             <a className="registrationButton text-xl text-center bottom-0 w-1/3 my-8" href="#home">Ir al inicio</a>
           </section>
       }
-      <aside className="w-1/2 h-[550px] hidden md:block">
+      <aside className="w-1/2 px-4 h-[500px] hidden md:block">
         <img
           className="rounded-xl object-cover object-center w-full h-full"
           src='/img/MPProfile.jpg'

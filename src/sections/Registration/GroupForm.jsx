@@ -175,7 +175,7 @@ export const GroupForm = () => {
                                 </section>
                             </>
                         }
-                        <button className="registrationButton bottom-0 w-1/3 my-8"> Enviar </button>
+                        <button className="registrationButton w-1/3 my-8"> Enviar </button>
                     </form>
                     :
                     <section className="flex flex-col justify-center items-center w-full md:w-1/2">
@@ -195,7 +195,7 @@ export const GroupForm = () => {
                         <a className="registrationButton text-xl text-center bottom-0 w-1/3 my-8" href="#home">Ir al inicio</a>
                     </section>
             }
-            <aside className="w-1/2 h-[550px] hidden md:block">
+            <aside className="w-1/2 px-4 h-[500px] hidden md:block">
                 <img
                     className="rounded-xl object-cover object-center w-full h-full"
                     src='/img/MPL.jpg'

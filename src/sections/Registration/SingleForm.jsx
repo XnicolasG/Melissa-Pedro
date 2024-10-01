@@ -143,7 +143,7 @@ export const SingleForm = () => {
                                 </select>
                             </div>
                         }
-                        <button className="registrationButton bottom-0 w-1/3 my-8"> Enviar </button>
+                        <button className="registrationButton w-1/3 my-8"> Enviar </button>
                     </form>
                     :
                     <section className="flex flex-col justify-center items-center w-full md:w-1/2">
@@ -162,7 +162,7 @@ export const SingleForm = () => {
                         <a className="registrationButton text-xl text-center bottom-0 w-1/3 my-8" href="#home">Ir al inicio</a>
                     </section>
             }
-            <aside className="w-1/2 h-[500px] hidden md:block">
+            <aside className="w-1/2 px-4 h-[500px] hidden md:block">
                 <img
                     className="rounded-xl object-cover object-bottom w-full h-full"
                     src='/img/Lupe.jpg'

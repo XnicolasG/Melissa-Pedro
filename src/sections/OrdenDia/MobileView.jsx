@@ -60,7 +60,7 @@ export const MobileView = () => {
                 </div>
               </div>
               :
-              <div className="party relative flex border rounded-lg p-4 col-span-2 sm:w-52  shadow-md">
+              <div className="party relative flex border rounded-lg p-4 col-span-2 shadow-md">
                 <div className={`bouncer bouncer-${item.number} flex flex-col items-center justify-center  text-emerald-700 font-bold text-5xl`}>
                   {item.number}
                   <span className={`icon icon-${item.number} text-2xl`}>

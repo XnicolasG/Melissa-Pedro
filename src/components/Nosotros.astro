@@ -1,0 +1,68 @@
+---
+const nosotros = [
+    {
+        title:'La primera vez que nos vimos',
+        image:'/img/story1.jpg',
+        description:`Era 2017, en la universidad había una jornada de donación de sangre. 
+        Los amigos de Pedro lo retaron a donar sangre, a pesar de su miedo a la sangre y agujas el acepto.
+        Melissa estaba en la camilla de al lado y cuando el se levantó se desmayo encima de Melissa haciendo que su camilla cayera al piso con los dos...`
+    },
+    {
+        title:'Cuando nos conocimos',
+        image:'/img/story2.jpg',
+        description:`Se conocieron gracias a una amiga en común, la mejor amiga de Melissa, en enero del 2008 en la zona T de Bogotá.
+        Salieron un tiempo pero los dos no querian las misma cosas...`
+    },
+    {
+        title:'Como comenzo la relación',
+        image:'/img/story3.jpg',
+        description:`El universo nos volvío a juntar en 2019 para el cumpleaños de nuestra amiga en común.
+        Ahí quedamosen ir al Festival Estereo Picnic juntos y fue allí donde Pedro le dedico "nuestro sueño" de grupo niche y la relación comenzó.
+        Desde 2019 hemos ido juntos a cada edición del FEP.`
+    },
+    {
+        title:'Cuando empezamos a ser tres',
+        image:'/img/MPL.jpg',
+        description:`En pandemía Pedro decidio comprar a Guadalupe, quíen desde el primer día llegó para fortalecer la relación y llenarnos de alegría.
+        Desde ahí hemos sido inseparables y una familia.`
+    },
+    {
+        title:'Nuestros hobbies',
+        image:'/img/story4.jpg',
+        description:`Los conciertos, carnavales, festivales y el amor por nuestras familias nos unió y nos fortalecio durante los 5 años de noviazgo.
+        Crecimos juntos como profesionales y personas. Con altos y bajos, pero como dicen por ahí "Lo que es para tí, ni aunque te quites ni aunque te pongas."`
+    },
+    {
+        title:'Nuestro compromiso',
+        image:'/img/story5.jpg',
+        description:`Camila y Esteban nos citaron en el Hotel Tequendama de Bogotá. Melissa pensaba que nos iban a anuncíar que estaban embarazados. 
+        Pero al llegar al restaurante del hotel se encontro con Pedro, quíen al final del camino estaba esperando para hacer la propuesta.`,
+        extra:'Dato Curioso: Dias después Camila y Esteban descubrieron que si estaban embarazados.'
+    },
+    
+
+]
+---
+<br id="Nosotros"/>
+<section id='' class="flex flex-col mx-auto justify-center">
+    <div class="relative  mx-auto ">
+        <h2 class="text-5xl md:text-7xl text-center text-emerald-800/20">
+          Nosotros
+        </h2>
+        <h2 class='text-xl md:text-3xl text-center font-Halimun font-semibold absolute top-3 md:top-5 left-[16%] ' >Nosotros</h2>
+      </div>
+    
+    <article>
+        {
+            nosotros.map((item) => (
+                <ul>
+            <h2></h2>
+             <div><img src="" alt=""></div>
+             <p></p>
+            </ul>
+                ))
+        }
+        
+    </article>
+
+</section>

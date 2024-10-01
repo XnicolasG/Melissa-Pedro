@@ -58,7 +58,7 @@ const Post = () => {
         >
             <h2 className="mx-auto mb-8 text-gray-700/80 text-2xl md:text-3xl">¿Qué hacer en Ipiales?</h2>
 
-            <section className="flex justify-around w-full ">
+            <section className="flex justify-around w-full  ">
 
                 <div className="w-full md:w-1/2 lg:w-1/3">
 

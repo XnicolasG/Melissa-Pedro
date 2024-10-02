@@ -52,15 +52,31 @@ const nosotros = [
         <h2 class='text-xl md:text-3xl text-center font-Halimun font-semibold absolute top-3 md:top-5 left-[16%] ' >Nosotros</h2>
       </div>
     
-    <article>
+    <article class="w-full mt-8 flex flex-col gap-8 items-center">
         {
-            nosotros.map((item) => (
-                <ul>
-            <h2></h2>
-             <div><img src="" alt=""></div>
-             <p></p>
+            nosotros.map((item, index) => 
+            {
+                const number = index + 1
+                return(
+                <ul class="h-auto w-[90%] md:w-[70%]">
+        <h2 class="ml-10 my-4 text-3xl text-emerald-800 block md:hidden">{item.title}</h2>
+            <section class={`${number % 2 ? 'flex flex-col md:flex-row-reverse justify-center items-center gap-8':'flex flex-col md:flex-row justify-center items-center gap-8'} `}>
+  <div class="flex-none w-80 h-64 overflow-hidden rounded-xl shadow-lg ">
+    <img class="object-cover w-full h-full object-center" src={item.image} alt={item.title}>
+  </div>
+  <div class="flex flex-col justify-start">
+        <h2 class="ml-10 my-4 text-3xl text-emerald-800 hidden md:block">{item.title}</h2>
+
+  <p class=" text-xl px-4 md:px-2 text-pretty">{item.description}</p>
+  {
+    item.extra &&
+    <p class="text-xl px-4 md:px-2 text-pretty text-emerald-900 py-2">{item.extra}</p>
+  }
+  </div>
+</section>
+
             </ul>
-                ))
+                )})
         }
         
     </article>

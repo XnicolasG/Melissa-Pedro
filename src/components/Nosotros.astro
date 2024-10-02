@@ -58,13 +58,13 @@ const nosotros = [
             {
                 const number = index + 1
                 return(
-                <ul class="h-auto w-[90%] md:w-[70%]">
-        <h2 class="ml-10 my-4 text-2xl text-emerald-800 block md:hidden">{item.title}</h2>
+                <ul class={`h-auto w-[90%] md:w-[70%] ${number % 2 && 'bg-emerald-800/20 rounded-xl shadow'}`}>
+        <h2 class="flex justify-center w-full my-4 text-2xl text-emerald-800 md:hidden">{item.title}</h2>
             <section class={`${number % 2 ? 'flex flex-col md:flex-row-reverse justify-center items-center gap-8':'flex flex-col md:flex-row justify-center items-center gap-8'} `}>
   <div class="flex-none w-80 h-64 overflow-hidden rounded-xl shadow-lg ">
     <img class="object-cover w-full h-full object-center" src={item.image} alt={item.title}>
   </div>
-  <div class="flex flex-col justify-start">
+  <div class="flex flex-col justify-start px-4 py-2">
         <h2 class="ml-10 my-4 text-3xl text-emerald-800 hidden md:block">{item.title}</h2>
 
   <p class=" text-xl px-4 md:px-2 text-pretty">{item.description}</p>

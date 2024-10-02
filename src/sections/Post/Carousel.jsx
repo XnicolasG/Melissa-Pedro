@@ -20,13 +20,13 @@ export const Carousel = ({ children, current, incrementState, decrementState }) 
             <aside className="absolute inset-0 flex items-center w-full justify-between p-4">
                 <button
                     onClick={prev}
-                    className="p-1 rounded-full shadow bg-white/80">
+                    className={` ${current === 0 ? 'bg-transparent' : 'p-1 rounded-full shadow bg-white/80'}`}>
                     <ChevronLeft stroke='#000' />
                 </button>
                 <button
                     onClick={next}
-                    className="p-1 rounded-full shadow bg-white/80">
-                    <ChevronRigth stroke='#000' />
+                    className={`${current === 3 ? 'bg-transparent' : 'p-1 rounded-full shadow bg-white/80'} `}>
+                    <ChevronRigth stroke={` ${current === 3 ? '#00FF0000' : '#000'}`} />
                 </button>
             </aside>
             <section className="absolute w-full bottom-4">

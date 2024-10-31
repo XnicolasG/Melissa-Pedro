@@ -1,23 +1,36 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useGetData } from '../sections/Listado/hooks/useGetData';
+import { useInfoList } from '../sections/Listado/hooks/useInfoList';
 
 export const Listado = () => {
     const { list } = useGetData()
-
     const [displayList, setDisplayList] = useState([])
-    const [isAttending, setIsAttending] = useState([])
-    useEffect(() => {
-        if (list.length > 0 || displayList.length === 0) {
-            setDisplayList(list);
-            setIsAttending(displayList
-                .filter(it => it.attending !== false)
-                .reduce((acc, item) => acc + item.number_of_people,0));
-        }
-    }, [list, displayList.length])
-
-    // const attending = isAttending
-    console.log(isAttending);
+    const [value, setValue] = useState('todos')
+    const { isAttending, meal } = useInfoList({ list,setDisplayList })
     
+    const info = [
+        {
+            title: 'Asistentes',
+            value: isAttending
+        },
+        {
+            title: 'Carne',
+            value: meal.meat
+        },
+        {
+            title: 'Veggie',
+            value: meal.veggie
+        }
+    ]
+    const buttons = ['Todos', 'Individual', 'Pareja', 'Grupo']
+
+    function handleFilter(e){
+        e.preventDefault()
+        const selectedValue = e.target.value;
+        setValue(selectedValue)
+        const filteredList = selectedValue === 'todos' ? list : list.filter((item) => item.registration_type === selectedValue)
+        setDisplayList(filteredList)
+    }
 
     return (
         <section className='px-2 md:px-6 w-full mt-28 flex flex-col items-center justify-center'>
@@ -28,21 +41,39 @@ export const Listado = () => {
 
                     <div className='w-full px-2 my-4 gap-2 flex flex-col items-start'>
                         <p className='text-gray-500 text-2xl'>Tipo de registro</p>
-                        <div className='w-auto flex gap-x-4'>
-                            <button className={`registrationButton w-24`}>Individual</button>
-                            <button className={`registrationButton w-24`}>Pareja</button>
-                            <button className={`registrationButton w-24`}>Grupo</button>
+                        <div className='w-full flex gap-x-4'>
+                            {
+                                buttons.map((btn) =>{
+                                    const title = btn.toLocaleLowerCase() 
+                                    return (
+                                    <button
+                                    key={btn}
+                                    value={title}
+                                    onClick={handleFilter}
+                                    className={`${value === title && 'registrationButtonActive'} registrationButton  w-24`}
+                                    >{btn}
+                                    </button>
+                                )}
+                            )
+                            }
                         </div>
                     </div>
                     <div>
-                        <div className='flex flex-col px-4 md:items-center'>
-                            <p>
-                                Asistentes
-                            </p>
-                            <h2 className=" py-1 sm:py-2 text-center tracking-wider text-md sm:text-2xl text-emerald-800  font-bold shadow-sm px-2 border-2 border-emerald-800
+                        <div className='flex items-center gap-x-4 px-4 '>
+                            {
+                                info.map((item) => (
+
+                                    <article key={item.title} className='flex flex-col items-center'>
+                                        <p>
+                                            {item.title}
+                                        </p>
+                                        <h2 className=" py-1 sm:py-2 text-center tracking-wider text-md sm:text-2xl text-emerald-800  font-bold shadow-sm px-2 border-2 border-emerald-800
                                 h-10 w-10 rounded-full md:flex md:justify-center md:items-center md:bg-white/20 hover:scale-110  transition duration-300 ">
-                                {isAttending}
-                            </h2>
+                                            {item.value}
+                                        </h2>
+                                    </article>
+                                ))
+                            }
                         </div>
                     </div>
                 </section>
@@ -90,17 +121,3 @@ export const Listado = () => {
         </section>
     )
 }
-
-// const TResgitration = [{
-//     TMeals: [{
-//         meat_count: 0,
-//         vegetarian_count: 0
-//     }],
-//     attending: false,
-//     created_at: "2024-09-12T23:07:54.896+00:00",
-//     description: "",
-//     id: "93073388-542d-4c02-ae9c-7c02108e257d",
-//     names: "Familia 1",
-//     number_of_people: null,
-//     registration_type: "grupo"
-// }]

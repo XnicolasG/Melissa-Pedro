@@ -73,7 +73,7 @@ import "../../styles/style.css";
         const countdown = setInterval(() => {
             const currentDate = new Date().getTime();
             const difference = targetDate - currentDate;
-
+            const expired = document?.getElementById("expired-message")
             
             if (difference < 0) {
                 updateElement("days", 0);
@@ -81,7 +81,7 @@ import "../../styles/style.css";
                 updateElement("minutes", 0);
                 updateElement("seconds", 0);
                 clearInterval(countdown); 
-                document?.getElementById("expired-message").classList.remove("hidden");
+                if (expired) expired.classList.remove("hidden");
                 return; 
             }
 

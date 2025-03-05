@@ -31,15 +31,18 @@ import "../../styles/style.css";
             <p class="count">Segundos</p>
         </div>
     </section>
-    <!-- <hr
-        class="h-[3px] w-full my-2 bg-transparent bg-gradient-to-r from-transparent via-gray-700/80 to-transparent"
-    /> -->
+    <p id="expired-message" class="hidden text-center text-emerald-900 text-md md:text-3xl font-semibold mt-1">
+        07/12/2024
+    </p>
 </main>
 <style>
     main{
         opacity: 0;
         animation: fadeInUp 2s ease-in-out forwards 1s;
     }
+    #expired-message {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Agrega sombra al texto */
+}
     @keyframes fadeInUp {
         0%{
             opacity: 0;
@@ -57,41 +60,42 @@ import "../../styles/style.css";
 <script>
     const targetDate = new Date("2024-12-07T16:00:00").getTime();
     console.log(targetDate);
-    let days;
-    let hours;
-    let minutes;
-    let seconds;
-    window.addEventListener("load", (event) => {
+    
+    // Función para actualizar el contenido de un elemento
+    function updateElement(id:any, value:any) {
+        let element = document.getElementById(id);
+        if (element) {
+            element.innerText = value.toString().padStart(2, '0'); // Agregar ceros a la izquierda si es necesario
+        }
+    }
+
+    window.addEventListener("load", () => {
         const countdown = setInterval(() => {
             const currentDate = new Date().getTime();
             const difference = targetDate - currentDate;
 
-            days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            hours = Math.floor(
-                (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-            );
-            minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            let element = document.getElementById("days");
-            if (element) element.innerText = days.toString();
-
-            element = document.getElementById("hours");
-            if (element) element.innerText = hours.toString();
-
-            element = document.getElementById("minutes");
-            if (element) element.innerText = minutes.toString();
-
-            element = document.getElementById("seconds");
-            if (element) element.innerText = seconds.toString();
-
+            
             if (difference < 0) {
-                clearInterval(countdown);
-                days = 0;
-                hours = 0;
-                minutes = 0;
-                seconds = 0;
+                updateElement("days", 0);
+                updateElement("hours", 0);
+                updateElement("minutes", 0);
+                updateElement("seconds", 0);
+                clearInterval(countdown); 
+                document?.getElementById("expired-message").classList.remove("hidden");
+                return; 
             }
+
+           
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            
+            updateElement("days", days);
+            updateElement("hours", hours);
+            updateElement("minutes", minutes);
+            updateElement("seconds", seconds);
         }, 1000);
     });
 </script>
